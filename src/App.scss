@@ -1,4 +1,6 @@
 .App {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -6,5 +8,4 @@
 }
 
 // use later in code
-// <i className="rocket fas fa-space-shuttle"></i>
 // <i className="astronaut fas fa-user-astronaut"></i>

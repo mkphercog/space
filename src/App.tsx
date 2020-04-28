@@ -1,9 +1,16 @@
 import React from "react";
 import SpaceBG from "./images/space-bg2.jpg";
 import "./App.scss";
+import { Logo } from "./components/Logo/Logo";
+import { Desk } from "./components/Desk/Desk";
+import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 
 const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
-export const App = () => {
-  return <div className="App" style={SpaceBgImage}></div>;
-};
+export const App = () => (
+  <div className="App" style={SpaceBgImage}>
+    <MenuIcon />
+    <Logo />
+    <Desk />
+  </div>
+);

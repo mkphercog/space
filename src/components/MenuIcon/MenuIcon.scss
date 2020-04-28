@@ -1,0 +1,144 @@
+.menu-icon {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  overflow: hidden;
+  outline-style: none;
+
+  @media (min-width: 768px) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.menu-icon__bar {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  border-radius: 3px;
+  background-color: lightgoldenrodyellow;
+}
+
+.menu-icon__bar--top {
+  top: 0;
+  left: 0;
+}
+
+.menu-icon__bar--top-animation {
+  animation: animationTop 0.6s linear both;
+
+  @keyframes animationTop {
+    0% {
+      top: 0;
+      transform: translateY(-50%) rotate(0);
+    }
+    35% {
+      top: 0;
+      transform: translateY(-50%) rotate(0);
+    }
+    65% {
+      top: 50%;
+      transform: translateY(-50%) rotate(0);
+    }
+    100% {
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+}
+
+.menu-icon__bar--top-animationBack {
+  animation: animationTopRev 0.6s linear both;
+
+  @keyframes animationTopRev {
+    0% {
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+    35% {
+      top: 50%;
+      transform: translateY(-50%) rotate(0);
+    }
+    65% {
+      top: 0;
+      transform: translateY(-50%) rotate(0);
+    }
+    100% {
+      top: 0;
+      transform: translateY(-50%) rotate();
+    }
+  }
+}
+
+.menu-icon__bar--center {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.menu-icon__bar--center-animation {
+  animation: barHide 0.3s linear both;
+
+  @keyframes barHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.menu-icon__bar--bottom {
+  top: calc(100% - 15%);
+  left: 0;
+}
+
+.menu-icon__bar--bottom-animation {
+  animation: animationBottom 0.6s linear both;
+
+  @keyframes animationBottom {
+    0% {
+      top: calc(100% - 15%);
+      transform: translateY(-50%) rotate(0);
+    }
+    35% {
+      top: calc(100% - 15%);
+      transform: translateY(-50%) rotate(0);
+    }
+    65% {
+      top: 50%;
+      transform: translateY(-50%) rotate(0);
+    }
+    100% {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+}
+
+.menu-icon__bar--bottom-animationBack {
+  animation: animationBottomRev 0.6s linear both;
+
+  @keyframes animationBottomRev {
+    0% {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    35% {
+      top: 50%;
+      transform: translateY(-50%) rotate(0);
+    }
+    65% {
+      top: calc(100% - 15%);
+      transform: translateY(-50%) rotate(0);
+    }
+    100% {
+      top: calc(100% - 15%);
+      transform: translateY(0) rotate(0);
+    }
+  }
+}
