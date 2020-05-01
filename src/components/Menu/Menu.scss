@@ -94,6 +94,7 @@
   font-size: 20px;
   font-weight: bold;
   color: white;
+  text-decoration: none;
 
   @media (min-width: 411px) {
     font-size: 22px;
@@ -102,5 +103,19 @@
   @media (min-width: 768px) {
     font-size: 28px;
     margin-top: 30px;
+  }
+}
+
+.active {
+  color: dodgerblue;
+  animation: fontAnimation 1.2s linear infinite;
+
+  @keyframes fontAnimation {
+    from {
+      text-shadow: 0 0 10px dodgerblue;
+    }
+    to {
+      text-shadow: 0 0 0 dodgerblue;
+    }
   }
 }
