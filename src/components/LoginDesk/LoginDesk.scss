@@ -87,3 +87,31 @@
     box-shadow: 0 0 10px 1px yellowgreen;
   }
 }
+
+.login-desk__login-error {
+  margin-top: 40px;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  text-shadow: 0 0 4px darkred;
+  animation: loginErrorAnimaion 1.5s linear both;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @keyframes loginErrorAnimaion {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

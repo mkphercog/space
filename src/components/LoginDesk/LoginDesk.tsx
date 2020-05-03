@@ -4,9 +4,9 @@ import ACCOUNTS from "./../../accounts.json";
 import { setLoginUser, setUserName } from "./../../store/actions/userAction";
 import { useDispatch } from "react-redux";
 
-export interface LoginDeskProps {}
-
 const { accounts } = ACCOUNTS;
+
+export interface LoginDeskProps {}
 
 const tryToLog = (
   login: string,
@@ -14,13 +14,15 @@ const tryToLog = (
   dispatch: Function
 ): boolean => {
   const getUser = accounts.find((user) => user.login === login);
-  if (getUser) dispatch(setUserName(getUser.name));
-  return getUser?.password === password;
+  const correctPassword = getUser?.password === password;
+  if (getUser && correctPassword) dispatch(setUserName(getUser.name));
+  return correctPassword;
 };
 
 export const LoginDesk: React.SFC<LoginDeskProps> = () => {
   const [loginValue, setLoginValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const [loginError, setLoginError] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -31,6 +33,10 @@ export const LoginDesk: React.SFC<LoginDeskProps> = () => {
           e.preventDefault();
           const loginResult = tryToLog(loginValue, passwordValue, dispatch);
           if (loginResult) dispatch(setLoginUser(loginResult));
+          else {
+            setTimeout(() => setLoginError(false), 1500);
+            setLoginError(true);
+          }
         }}
       >
         <label className="login-desk__label">Login</label>
@@ -49,6 +55,11 @@ export const LoginDesk: React.SFC<LoginDeskProps> = () => {
         />
         <button className="login-desk__btn">Zaloguj się</button>
       </form>
+      {loginError ? (
+        <p className="login-desk__login-error">
+          Błąd logowania. Spróbuj ponownie!
+        </p>
+      ) : null}
     </section>
   );
 };
