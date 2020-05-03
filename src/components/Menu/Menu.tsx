@@ -31,7 +31,8 @@ export const Menu: React.FC<MenuProps> = () => {
       <ul className="menu__container">
         <NavLink
           className="menu__link"
-          to="/about"
+          to="/"
+          exact
           onClick={() => dispatch(hideMenu())}
         >
           O aplikacji
@@ -66,7 +67,7 @@ export const Menu: React.FC<MenuProps> = () => {
           to="/login"
           onClick={() => dispatch(hideMenu())}
         >
-          Zaloguj
+          Logowanie
         </NavLink>
       </ul>
     </nav>
