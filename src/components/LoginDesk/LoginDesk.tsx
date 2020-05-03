@@ -19,7 +19,7 @@ const tryToLog = (
   return correctPassword;
 };
 
-export const LoginDesk: React.SFC<LoginDeskProps> = () => {
+export const LoginDesk: React.FC<LoginDeskProps> = () => {
   const [loginValue, setLoginValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [loginError, setLoginError] = useState(false);

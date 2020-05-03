@@ -14,7 +14,6 @@ interface Menu {
 }
 
 export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
-  // const dispatch = useDispatch();
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
 
   const topAnimation = menuVisibility

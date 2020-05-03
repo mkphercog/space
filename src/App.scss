@@ -11,14 +11,16 @@
 // use later in code
 // <i className="astronaut fas fa-user-astronaut"></i>
 
-::-webkit-scrollbar {
-  width: 24px;
-  height: 24px;
-}
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 24px;
+    height: 24px;
+  }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 25px;
-  border: 10px solid rgba(0, 0, 0, 0);
-  background-clip: padding-box;
-  background-color: gray;
+  ::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    border: 10px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    background-color: gray;
+  }
 }

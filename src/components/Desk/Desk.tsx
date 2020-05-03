@@ -1,9 +1,10 @@
 import React from "react";
 import "./Desk.scss";
+import { useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { AboutApp } from "./../AboutApp/AboutApp";
 import { LoginDesk } from "./../LoginDesk/LoginDesk";
-import { useSelector } from "react-redux";
+import { Board } from "./../Board/Board";
 
 export interface DeskProps {}
 
@@ -18,15 +19,15 @@ export const Desk: React.FC<DeskProps> = () => {
 
   return (
     <main className="desk">
-      <div className="desk__div">
-        <Switch>
-          <Route path="/" exact component={AboutApp} />
-          <Route
-            path="/login"
-            render={() => (userIsLogged ? <Redirect to="/" /> : <LoginDesk />)}
-          />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/" exact component={AboutApp} />
+        <Route path="/board" component={Board} />
+        <Route
+          path="/login"
+          render={() => (userIsLogged ? <Redirect to="/" /> : <LoginDesk />)}
+        />
+        <Route component={() => <div style={{ color: "white" }}>BŁĄD</div>} />
+      </Switch>
     </main>
   );
 };
