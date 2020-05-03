@@ -1,14 +1,18 @@
-import { SET_LOGIN_USER, SET_USER_NAME } from "./../types";
+import { SET_LOGIN_USER, SET_USER_DETAILS } from "./../types";
 
 const INITIAL_STATE = {
   isLogged: false,
   name: "Nieznajomy",
+  img: "",
+  friends: [],
 };
 
 interface Action {
   type: string;
   isLogged: boolean;
   name: string;
+  img: string;
+  friends: number[];
 }
 
 export const userReducer = (state = INITIAL_STATE, action: Action) => {
@@ -18,10 +22,12 @@ export const userReducer = (state = INITIAL_STATE, action: Action) => {
         ...state,
         isLogged: action.isLogged,
       };
-    case SET_USER_NAME:
+    case SET_USER_DETAILS:
       return {
         ...state,
         name: action.name,
+        img: action.img,
+        friends: action.friends,
       };
     default:
       return state;

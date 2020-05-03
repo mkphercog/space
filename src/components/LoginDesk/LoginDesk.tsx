@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginDesk.scss";
 import ACCOUNTS from "./../../accounts.json";
-import { setLoginUser, setUserName } from "./../../store/actions/userAction";
+import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { useDispatch } from "react-redux";
 
 const { accounts } = ACCOUNTS;
@@ -15,7 +15,7 @@ const tryToLog = (
 ): boolean => {
   const getUser = accounts.find((user) => user.login === login);
   const correctPassword = getUser?.password === password;
-  if (getUser && correctPassword) dispatch(setUserName(getUser.name));
+  if (getUser && correctPassword) dispatch(setUserDetails(getUser));
   return correctPassword;
 };
 

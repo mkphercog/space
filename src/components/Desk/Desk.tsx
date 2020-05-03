@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { AboutApp } from "./../AboutApp/AboutApp";
 import { LoginDesk } from "./../LoginDesk/LoginDesk";
 import { Board } from "./../Board/Board";
+import LoggedUserProfile from "../LoggedUserProfile/LoggedUserProfile";
 
 export interface DeskProps {}
 
@@ -21,7 +22,17 @@ export const Desk: React.FC<DeskProps> = () => {
     <main className="desk">
       <Switch>
         <Route path="/" exact component={AboutApp} />
+        <Route
+          path="/profile"
+          render={() =>
+            userIsLogged ? <LoggedUserProfile /> : <Redirect to="/login" />
+          }
+        />
         <Route path="/board" component={Board} />
+        <Route
+          path="/users"
+          render={() => (userIsLogged ? null : <Redirect to="/login" />)}
+        />
         <Route
           path="/login"
           render={() => (userIsLogged ? <Redirect to="/" /> : <LoginDesk />)}

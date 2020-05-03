@@ -1,11 +1,19 @@
-import { SET_LOGIN_USER, SET_USER_NAME } from "./../types";
+import { SET_LOGIN_USER, SET_USER_DETAILS } from "./../types";
 
 export const setLoginUser = (isLogged: boolean) => ({
   type: SET_LOGIN_USER,
   isLogged: isLogged,
 });
 
-export const setUserName = (name: string) => ({
-  type: SET_USER_NAME,
-  name: name,
+interface User {
+  name: string;
+  img: string;
+  friends: number[];
+}
+
+export const setUserDetails = (user: User) => ({
+  type: SET_USER_DETAILS,
+  name: user.name,
+  img: user.img,
+  friends: user.friends,
 });

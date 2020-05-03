@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import SpaceBG from "./../../images/space-bg.jpg";
 import { NavLink } from "react-router-dom";
 import { hideMenu } from "./../../store/actions/menuAction";
-import { setLoginUser, setUserName } from "./../../store/actions/userAction";
+import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 
 const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
@@ -68,10 +68,10 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
         {userIsLogged ? (
           <NavLink
             className="menu__link"
-            to="/friends"
+            to="/users"
             onClick={() => dispatch(hideMenu())}
           >
-            Znajomi
+            Użytkownicy
           </NavLink>
         ) : null}
 
@@ -82,7 +82,9 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
             onClick={() => {
               dispatch(hideMenu());
               dispatch(setLoginUser(false));
-              dispatch(setUserName("Nieznajomy"));
+              dispatch(
+                setUserDetails({ name: "Nieznajomy", img: "", friends: [] })
+              );
             }}
           >
             Wyloguj
