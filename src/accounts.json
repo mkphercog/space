@@ -1,10 +1,14 @@
 {
-  "test": {
-    "login": "test",
-    "password": "test"
-  },
-  "marcin": {
-    "login": "marcin",
-    "password": "marcin"
-  }
+  "accounts": [
+    {
+      "login": "test",
+      "password": "test",
+      "name": "Testowy"
+    },
+    {
+      "login": "marcin",
+      "password": "marcin",
+      "name": "Marcin"
+    }
+  ]
 }

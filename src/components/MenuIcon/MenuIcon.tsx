@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { hideMenu, showMenu } from "./../../store/actions/menuAction";
 import "./MenuIcon.scss";
 
-export interface MenuIconProps {}
+export interface MenuIconProps {
+  dispatch: Function;
+}
 
 interface Menu {
   menu: {
@@ -11,8 +13,8 @@ interface Menu {
   };
 }
 
-export const MenuIcon: React.FC<MenuIconProps> = () => {
-  const dispatch = useDispatch();
+export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
+  // const dispatch = useDispatch();
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
 
   const topAnimation = menuVisibility

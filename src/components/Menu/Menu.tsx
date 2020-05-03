@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import "./Menu.scss";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import SpaceBG from "./../../images/space-bg.jpg";
 import { NavLink } from "react-router-dom";
 import { hideMenu } from "./../../store/actions/menuAction";
+import { setLoginUser, setUserName } from "./../../store/actions/userAction";
 
 const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
-export interface MenuProps {}
+export interface MenuProps {
+  dispatch: Function;
+}
 
 interface Menu {
   menu: {
@@ -15,12 +18,18 @@ interface Menu {
   };
 }
 
+interface User {
+  user: {
+    isLogged: boolean;
+  };
+}
+
 let menuLoad = false;
 
-export const Menu: React.FC<MenuProps> = () => {
-  const dispatch = useDispatch();
+export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
   const animation = menuVisibility ? "menu--show" : "menu--hide";
+  const userIsLogged = useSelector((state: User) => state.user.isLogged);
 
   useEffect(() => {
     menuLoad = true;
@@ -38,13 +47,15 @@ export const Menu: React.FC<MenuProps> = () => {
           O aplikacji
         </NavLink>
 
-        {/* <NavLink
-          className="menu__link"
-          to="/profile"
-          onClick={() => dispatch(hideMenu())}
-        >
-          Profil
-        </NavLink> */}
+        {userIsLogged ? (
+          <NavLink
+            className="menu__link"
+            to="/profile"
+            onClick={() => dispatch(hideMenu())}
+          >
+            Profil
+          </NavLink>
+        ) : null}
 
         <NavLink
           className="menu__link"
@@ -54,21 +65,37 @@ export const Menu: React.FC<MenuProps> = () => {
           Tablica
         </NavLink>
 
-        {/* <NavLink
-          className="menu__link"
-          to="/friends"
-          onClick={() => dispatch(hideMenu())}
-        >
-          Znajomi
-        </NavLink> */}
+        {userIsLogged ? (
+          <NavLink
+            className="menu__link"
+            to="/friends"
+            onClick={() => dispatch(hideMenu())}
+          >
+            Znajomi
+          </NavLink>
+        ) : null}
 
-        <NavLink
-          className="menu__link"
-          to="/login"
-          onClick={() => dispatch(hideMenu())}
-        >
-          Logowanie
-        </NavLink>
+        {userIsLogged ? (
+          <NavLink
+            className="menu__link"
+            to="/login"
+            onClick={() => {
+              dispatch(hideMenu());
+              dispatch(setLoginUser(false));
+              dispatch(setUserName("Nieznajomy"));
+            }}
+          >
+            Wyloguj
+          </NavLink>
+        ) : (
+          <NavLink
+            className="menu__link"
+            to="/login"
+            onClick={() => dispatch(hideMenu())}
+          >
+            Logowanie
+          </NavLink>
+        )}
       </ul>
     </nav>
   );
