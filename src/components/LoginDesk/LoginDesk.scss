@@ -74,4 +74,16 @@
   @media (min-width: 768px) {
     font-size: 22px;
   }
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-desk__btn:hover {
+    background-color: yellowgreen;
+    box-shadow: 0 0 10px 1px yellowgreen;
+  }
 }
