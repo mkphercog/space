@@ -1,0 +1,78 @@
+.users {
+  width: 100%;
+  animation: showAnimation 1.3s linear both;
+
+  @keyframes showAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.users__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.178);
+
+  @media (orientation: landscape) {
+    width: 60%;
+  }
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 45%;
+  }
+}
+
+.users__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+
+  @media (min-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.users__name {
+  font-weight: bold;
+  padding-left: 20px;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+.users__add-friend-icon {
+  padding: 10px 20px;
+  font-size: 30px;
+  color: yellowgreen;
+  transition: 0.2s;
+
+  @media (min-width: 768px) {
+    font-size: 35px;
+  }
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1024px) {
+  .users__add-friend-icon:hover {
+    text-shadow: 0 0 10px yellowgreen;
+  }
+}

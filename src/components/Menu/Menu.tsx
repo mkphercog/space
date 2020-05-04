@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./Menu.scss";
 import { useSelector } from "react-redux";
 import SpaceBG from "./../../images/space-bg.jpg";
@@ -8,32 +8,20 @@ import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 
 const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
-export interface MenuProps {
-  dispatch: Function;
-}
-
-interface Menu {
-  menu: {
-    visibility: boolean;
-  };
-}
-
-interface User {
-  user: {
-    isLogged: boolean;
-  };
-}
-
-let menuLoad = false;
+const defaultUserState = {
+  id: 0,
+  name: "Nieznajomy",
+  img: "",
+  friends: [],
+};
 
 export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
-  const animation = menuVisibility ? "menu--show" : "menu--hide";
   const userIsLogged = useSelector((state: User) => state.user.isLogged);
+  const [menuLoad, setMenuLoad] = useState(false);
+  const animation = menuVisibility ? "menu--show" : "menu--hide";
 
-  useEffect(() => {
-    menuLoad = true;
-  }, []);
+  if (menuVisibility && !menuLoad) setMenuLoad(true);
 
   return (
     <nav className={`menu ${menuLoad ? animation : ""}`} style={SpaceBgImage}>
@@ -82,9 +70,7 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
             onClick={() => {
               dispatch(hideMenu());
               dispatch(setLoginUser(false));
-              dispatch(
-                setUserDetails({ name: "Nieznajomy", img: "", friends: [] })
-              );
+              dispatch(setUserDetails(defaultUserState));
             }}
           >
             Wyloguj
@@ -102,3 +88,19 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
     </nav>
   );
 };
+
+export interface MenuProps {
+  dispatch: Function;
+}
+
+interface Menu {
+  menu: {
+    visibility: boolean;
+  };
+}
+
+interface User {
+  user: {
+    isLogged: boolean;
+  };
+}

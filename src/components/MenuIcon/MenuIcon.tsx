@@ -3,16 +3,6 @@ import { useSelector } from "react-redux";
 import { hideMenu, showMenu } from "./../../store/actions/menuAction";
 import "./MenuIcon.scss";
 
-export interface MenuIconProps {
-  dispatch: Function;
-}
-
-interface Menu {
-  menu: {
-    visibility: boolean;
-  };
-}
-
 export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
 
@@ -28,11 +18,11 @@ export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
 
   return (
     <div
+      className="menu-icon"
       onClick={() => {
         if (menuVisibility) dispatch(hideMenu());
         else dispatch(showMenu());
       }}
-      className="menu-icon"
     >
       <span
         className={`menu-icon__bar menu-icon__bar--top ${topAnimation}`}
@@ -46,3 +36,13 @@ export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
     </div>
   );
 };
+
+export interface MenuIconProps {
+  dispatch: Function;
+}
+
+interface Menu {
+  menu: {
+    visibility: boolean;
+  };
+}

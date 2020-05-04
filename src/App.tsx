@@ -7,16 +7,16 @@ import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 import { Menu } from "./components/Menu/Menu";
 import { useDispatch } from "react-redux";
 
-const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
+const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
 export const App = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="App" style={SpaceBgImage}>
+    <div className="app" style={spaceBgImage}>
       <MenuIcon dispatch={dispatch} />
       <Logo />
-      <Desk/>
+      <Desk />
       <Menu dispatch={dispatch} />
     </div>
   );

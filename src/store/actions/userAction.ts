@@ -5,15 +5,17 @@ export const setLoginUser = (isLogged: boolean) => ({
   isLogged: isLogged,
 });
 
+export const setUserDetails = ({ id, name, img, friends }: User) => ({
+  type: SET_USER_DETAILS,
+  id: id,
+  name: name,
+  img: img,
+  friends: friends,
+});
+
 interface User {
+  id: number;
   name: string;
   img: string;
   friends: number[];
 }
-
-export const setUserDetails = (user: User) => ({
-  type: SET_USER_DETAILS,
-  name: user.name,
-  img: user.img,
-  friends: user.friends,
-});

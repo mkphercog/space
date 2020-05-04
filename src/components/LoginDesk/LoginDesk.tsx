@@ -25,18 +25,22 @@ export const LoginDesk: React.FC<LoginDeskProps> = () => {
   const [loginError, setLoginError] = useState(false);
   const dispatch = useDispatch();
 
+  const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const loginResult = tryToLog(loginValue, passwordValue, dispatch);
+    if (loginResult) dispatch(setLoginUser(loginResult));
+    else {
+      setTimeout(() => setLoginError(false), 1500);
+      setLoginError(true);
+    }
+  };
+
   return (
     <section className="login-desk">
       <form
         className="login-desk__wrapper"
         onSubmit={(e) => {
-          e.preventDefault();
-          const loginResult = tryToLog(loginValue, passwordValue, dispatch);
-          if (loginResult) dispatch(setLoginUser(loginResult));
-          else {
-            setTimeout(() => setLoginError(false), 1500);
-            setLoginError(true);
-          }
+          handleSubmitLogin(e);
         }}
       >
         <label className="login-desk__label">Login</label>

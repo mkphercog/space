@@ -4,11 +4,6 @@ const INITIAL_STATE = {
   visibility: false,
 };
 
-interface Action {
-  type: string;
-  visibility: boolean;
-}
-
 export const menuReducer = (state = INITIAL_STATE, action: Action) => {
   switch (action.type) {
     case SHOW_MENU:
@@ -19,3 +14,8 @@ export const menuReducer = (state = INITIAL_STATE, action: Action) => {
       return state;
   }
 };
+
+interface Action {
+  type: string;
+  visibility: boolean;
+}

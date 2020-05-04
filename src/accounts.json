@@ -2,11 +2,11 @@
   "accounts": [
     {
       "id": 0,
-      "login": "test",
-      "password": "test",
-      "name": "Testowy",
-      "img": "https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_960_720.jpg",
-      "friends": [0, 1]
+      "login": "admin",
+      "password": "admin",
+      "name": "Administrator",
+      "img": "https://cdn.pixabay.com/photo/2020/04/30/14/03/mountains-and-hills-5112952_960_720.jpg",
+      "friends": [1]
     },
     {
       "id": 1,
@@ -62,6 +62,14 @@
       "password": "hanke",
       "name": "Hankę",
       "img": "https://cdn.pixabay.com/photo/2017/11/14/13/06/kitty-2948404_960_720.jpg",
+      "friends": [0, 1]
+    },
+    {
+      "id": 8,
+      "login": "test",
+      "password": "test",
+      "name": "Testowy",
+      "img": "https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_960_720.jpg",
       "friends": [0, 1]
     }
   ]

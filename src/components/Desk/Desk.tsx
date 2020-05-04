@@ -5,40 +5,61 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { AboutApp } from "./../AboutApp/AboutApp";
 import { LoginDesk } from "./../LoginDesk/LoginDesk";
 import { Board } from "./../Board/Board";
-import LoggedUserProfile from "../LoggedUserProfile/LoggedUserProfile";
+import { LoggedUserProfile } from "../LoggedUserProfile/LoggedUserProfile";
+import { Users } from "./../Users/Users";
 
 export interface DeskProps {}
 
-interface User {
-  user: {
-    isLogged: boolean;
-  };
-}
-
 export const Desk: React.FC<DeskProps> = () => {
-  const userIsLogged = useSelector((state: User) => state.user.isLogged);
+  const loggedUser = useSelector((state: User) => state.user);
 
   return (
     <main className="desk">
       <Switch>
-        <Route path="/" exact component={AboutApp} />
+        <Route
+          path="/"
+          exact
+          render={() => <AboutApp loggedUser={loggedUser} />}
+        />
         <Route
           path="/profile"
           render={() =>
-            userIsLogged ? <LoggedUserProfile /> : <Redirect to="/login" />
+            loggedUser.isLogged ? (
+              <LoggedUserProfile loggedUser={loggedUser} />
+            ) : (
+              <Redirect to="/login" />
+            )
           }
         />
-        <Route path="/board" component={Board} />
+        <Route path="/board" render={() => <Board loggedUser={loggedUser} />} />
         <Route
           path="/users"
-          render={() => (userIsLogged ? null : <Redirect to="/login" />)}
+          render={() =>
+            loggedUser.isLogged ? (
+              <Users loggedUser={loggedUser} />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
         />
         <Route
           path="/login"
-          render={() => (userIsLogged ? <Redirect to="/" /> : <LoginDesk />)}
+          render={() =>
+            loggedUser.isLogged ? <Redirect to="/" /> : <LoginDesk />
+          }
         />
         <Route component={() => <div style={{ color: "white" }}>BŁĄD</div>} />
       </Switch>
     </main>
   );
 };
+
+interface User {
+  user: {
+    id: number;
+    isLogged: boolean;
+    name: string;
+    img: string;
+    friends: [];
+  };
+}
