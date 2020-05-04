@@ -22,6 +22,29 @@
   }
 }
 
+.logged-user-profile__wrapper-name-img {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  flex-direction: column;
+}
+
+.logged-user-profile__name {
+  text-transform: uppercase;
+  color: white;
+  font-size: 30px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 44px;
+  }
+}
+
 .logged-user-profile__img {
   width: 180px;
   height: 180px;
@@ -47,22 +70,77 @@
   }
 }
 
-.logged-user-profile__name {
-  margin-top: 25px;
-  text-transform: uppercase;
+.logged-user-profile__wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    width: 0;
+    flex-grow: 1;
+  }
+}
+
+.logged-user-profile__friends-title {
+  margin: 20px 0;
   color: white;
 
-  @media (min-width: 411px) {
-    font-size: 30px;
+  @media (min-width: 768px) {
+    font-size: 32px;
   }
+}
+
+.logged-user-profile__friend-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  overflow: auto;
+  background-color: rgba(45, 45, 45, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 4px 2px black;
+
+  @media (min-width: 1024px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    max-height: 40vh;
+  }
+}
+
+.logged-user-profile__friend-img {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 70px;
+  height: 70px;
+  margin: 0 0 0 30px;
+  border-radius: 50%;
+  background-size: cover;
 
   @media (min-width: 768px) {
-    font-size: 40px;
+    width: 120px;
+    height: 120px;
+    margin: 0 0 0 40px;
   }
 
   @media (min-width: 1024px) {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 44px;
+    margin: 20px;
+  }
+}
+
+.logged-user-profile__friend-name {
+  padding: 3px 10px;
+  font-size: 13px;
+  color: white;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  @media (min-width: 768px) {
+    padding: 5px 15px;
+    font-size: 18px;
   }
 }

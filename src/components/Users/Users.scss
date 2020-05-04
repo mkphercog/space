@@ -18,8 +18,9 @@
   align-items: center;
   margin: 30px auto;
   padding: 10px;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.178);
+  background-color: rgba(45, 45, 45, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 4px 2px black;
 
   @media (orientation: landscape) {
     width: 60%;
