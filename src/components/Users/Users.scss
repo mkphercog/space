@@ -60,7 +60,7 @@
 .users__add-friend-icon {
   padding: 10px 20px;
   font-size: 30px;
-  color: yellowgreen;
+  color: rgba(30, 143, 255, 0.7);
   transition: 0.2s;
 
   @media (min-width: 768px) {
@@ -74,6 +74,17 @@
 
 @media (min-width: 1024px) {
   .users__add-friend-icon:hover {
-    text-shadow: 0 0 10px yellowgreen;
+    text-shadow: 0 0 10px dodgerblue;
+  }
+}
+
+.users__add-friend-icon--added {
+  color: yellowgreen;
+}
+
+@media (min-width: 1024px) {
+  .users__add-friend-icon--added:hover {
+    text-shadow: 0 0 0 yellowgreen;
+    cursor: auto;
   }
 }

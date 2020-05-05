@@ -3,3 +3,4 @@ export const HIDE_MENU = "HIDE_MENU";
 
 export const SET_LOGIN_USER = "SET_LOGIN_USER";
 export const SET_USER_DETAILS = "SET_USER_DETAILS";
+export const ADD_USER_TO_FRIENDS = "ADD_USER_TO_FRIENDS";

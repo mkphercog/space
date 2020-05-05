@@ -1,4 +1,8 @@
-import { SET_LOGIN_USER, SET_USER_DETAILS } from "./../types";
+import {
+  SET_LOGIN_USER,
+  SET_USER_DETAILS,
+  ADD_USER_TO_FRIENDS,
+} from "./../types";
 
 const INITIAL_STATE = {
   id: 0,
@@ -23,6 +27,11 @@ export const userReducer = (state = INITIAL_STATE, action: Action) => {
         img: action.img,
         friends: action.friends,
       };
+    case ADD_USER_TO_FRIENDS:
+      return {
+        ...state,
+        friends: [...state.friends, action.newFriendID],
+      };
     default:
       return state;
   }
@@ -35,4 +44,5 @@ interface Action {
   name: string;
   img: string;
   friends: number[];
+  newFriendID: number;
 }

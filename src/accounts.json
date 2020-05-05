@@ -46,7 +46,7 @@
       "password": "marlen",
       "name": "Marlen",
       "img": "https://cdn.pixabay.com/photo/2014/04/10/11/24/red-rose-320868_960_720.jpg",
-      "friends": [0, 1]
+      "friends": [3, 6, 2]
     },
     {
       "id": 6,
