@@ -1,15 +1,19 @@
 import React from "react";
 import "./LoggedUserProfile.scss";
 import ACCOUNTS from "./../../accounts.json";
+import { deleteUserFromFriends } from "./../../store/actions/userAction";
+import { useDispatch } from "react-redux";
 
 const { accounts } = ACCOUNTS;
 
 export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
   loggedUser,
 }) => {
+  const dispatch = useDispatch();
   const getFriends = loggedUser.friends.map((friendID) =>
     accounts.find((user) => user.id === friendID)
   );
+
   const renderFriends = getFriends.map((friend) => (
     <div
       key={friend?.id}
@@ -17,6 +21,10 @@ export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
       style={{ backgroundImage: `url(${friend?.img})` }}
     >
       <span className="logged-user-profile__friend-name">{friend?.name}</span>
+      <i
+        onClick={() => dispatch(deleteUserFromFriends(friend?.id))}
+        className="fas fa-user-minus logged-user-profile__delete-friend"
+      ></i>
     </div>
   ));
   return (
@@ -31,7 +39,7 @@ export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
         ></div>
       </div>
       <div className="logged-user-profile__wrapper">
-        <h2 className="logged-user-profile__friends-title">Znajomi</h2>
+        <h2 className="logged-user-profile__friends-title">{`Znajomi (${getFriends.length})`}</h2>
         <div className="logged-user-profile__friend-wrapper">
           {renderFriends.length ? (
             renderFriends

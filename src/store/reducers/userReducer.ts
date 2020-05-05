@@ -2,6 +2,7 @@ import {
   SET_LOGIN_USER,
   SET_USER_DETAILS,
   ADD_USER_TO_FRIENDS,
+  DELETE_USER_FROM_FRIENDS,
 } from "./../types";
 
 const INITIAL_STATE = {
@@ -32,6 +33,14 @@ export const userReducer = (state = INITIAL_STATE, action: Action) => {
         ...state,
         friends: [...state.friends, action.newFriendID],
       };
+    case DELETE_USER_FROM_FRIENDS:
+      const listWithoutDeletedFriend = state.friends.filter(
+        (friend) => friend !== action.friendToDeleteID
+      );
+      return {
+        ...state,
+        friends: listWithoutDeletedFriend,
+      };
     default:
       return state;
   }
@@ -45,4 +54,5 @@ interface Action {
   img: string;
   friends: number[];
   newFriendID: number;
+  friendToDeleteID: number;
 }

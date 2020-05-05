@@ -112,6 +112,7 @@
 
 .logged-user-profile__friend-img {
   flex-shrink: 0;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -142,5 +143,32 @@
   @media (min-width: 768px) {
     padding: 5px 15px;
     font-size: 18px;
+  }
+}
+
+.logged-user-profile__delete-friend {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  padding: 6px 4px;
+  font-size: 16px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: darkred;
+  transition: 0.2s;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logged-user-profile__delete-friend:hover {
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.7);
   }
 }
