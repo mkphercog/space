@@ -42,9 +42,12 @@ export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
         <h2 className="logged-user-profile__friends-title">{`Znajomi (${getFriends.length})`}</h2>
         <div className="logged-user-profile__friend-wrapper">
           {renderFriends.length ? (
-            renderFriends
+            <>
+              {renderFriends}
+              <div className="logged-user-profile__last-img-margin-on-mobile"></div>
+            </>
           ) : (
-            <span className="logged-user-profile__friend-name">
+            <span className="logged-user-profile__friend-name logged-user-profile__friend-name--no-friend">
               Brak znajomych
             </span>
           )}

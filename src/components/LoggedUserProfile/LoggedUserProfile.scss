@@ -133,6 +133,16 @@
   }
 }
 
+.logged-user-profile__last-img-margin-on-mobile {
+  flex-shrink: 0;
+  width: 40px;
+
+  @media (min-width: 1024px) {
+    width: 0;
+    height: 0;
+  }
+}
+
 .logged-user-profile__friend-name {
   padding: 3px 10px;
   font-size: 13px;
@@ -143,6 +153,14 @@
   @media (min-width: 768px) {
     padding: 5px 15px;
     font-size: 18px;
+  }
+}
+
+.logged-user-profile__friend-name--no-friend {
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    margin: none;
   }
 }
 
