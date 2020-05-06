@@ -17,7 +17,7 @@ const defaultUserState = {
 
 export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
-  const userIsLogged = useSelector((state: User) => state.user.isLogged);
+  const userIsLogged = useSelector((state: User) => state.loggedUser.isLogged);
   const [menuLoad, setMenuLoad] = useState(false);
   const animation = menuVisibility ? "menu--show" : "menu--hide";
 
@@ -100,7 +100,7 @@ interface Menu {
 }
 
 interface User {
-  user: {
+  loggedUser: {
     isLogged: boolean;
   };
 }

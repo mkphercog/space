@@ -1,15 +1,12 @@
 import React from "react";
 import "./Users.scss";
-import ACCOUNTS from "./../../accounts.json";
 import { useDispatch } from "react-redux";
 import { addUserToFriends } from "./../../store/actions/userAction";
 
-const { accounts } = ACCOUNTS;
-
-export const Users: React.FC<UsersProps> = ({ loggedUser }) => {
+export const Users: React.FC<UsersProps> = ({ loggedUser, users }) => {
   const dispatch = useDispatch();
 
-  const getListWithoutLoggedUser = accounts.filter(
+  const getListWithoutLoggedUser = users.filter(
     (user) => user.id !== loggedUser.id
   );
 
@@ -45,4 +42,13 @@ export interface UsersProps {
     img: string;
     friends: number[];
   };
+  users: {
+    login: string;
+    password: string;
+    id: number;
+    isLogged: boolean;
+    name: string;
+    img: string;
+    friends: [];
+  }[];
 }

@@ -1,14 +1,17 @@
 .desk {
   flex-grow: 1;
 
-  width: 80%;
+  width: 90%;
   margin: 0 0 30px;
   padding: 10px;
   background-color: rgba(63, 63, 54, 0.2);
   border-radius: 25px;
   overflow: auto;
-
   animation: shadow 1.8s alternate-reverse infinite linear;
+
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
 
   @keyframes shadow {
     from {

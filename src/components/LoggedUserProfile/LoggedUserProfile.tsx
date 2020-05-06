@@ -1,17 +1,15 @@
 import React from "react";
 import "./LoggedUserProfile.scss";
-import ACCOUNTS from "./../../accounts.json";
 import { deleteUserFromFriends } from "./../../store/actions/userAction";
 import { useDispatch } from "react-redux";
 
-const { accounts } = ACCOUNTS;
-
 export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
   loggedUser,
+  users,
 }) => {
   const dispatch = useDispatch();
   const getFriends = loggedUser.friends.map((friendID) =>
-    accounts.find((user) => user.id === friendID)
+    users.find((user) => user.id === friendID)
   );
 
   const renderFriends = getFriends.map((friend) => (
@@ -63,4 +61,11 @@ export interface LoggedUserProfileProps {
     img: string;
     friends: [];
   };
+  users: {
+    id: number;
+    isLogged: boolean;
+    name: string;
+    img: string;
+    friends: [];
+  }[];
 }

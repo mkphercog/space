@@ -11,7 +11,8 @@ import { Users } from "./../Users/Users";
 export interface DeskProps {}
 
 export const Desk: React.FC<DeskProps> = () => {
-  const loggedUser = useSelector((state: User) => state.user);
+  const loggedUser = useSelector((state: User) => state.loggedUser);
+  const users = useSelector((state: IUsers) => state.users);
 
   return (
     <main className="desk">
@@ -25,18 +26,21 @@ export const Desk: React.FC<DeskProps> = () => {
           path="/profile"
           render={() =>
             loggedUser.isLogged ? (
-              <LoggedUserProfile loggedUser={loggedUser} />
+              <LoggedUserProfile loggedUser={loggedUser} users={users} />
             ) : (
               <Redirect to="/login" />
             )
           }
         />
-        <Route path="/board" render={() => <Board loggedUser={loggedUser} />} />
+        <Route
+          path="/board"
+          render={() => <Board loggedUser={loggedUser} users={users} />}
+        />
         <Route
           path="/users"
           render={() =>
             loggedUser.isLogged ? (
-              <Users loggedUser={loggedUser} />
+              <Users loggedUser={loggedUser} users={users} />
             ) : (
               <Redirect to="/login" />
             )
@@ -45,7 +49,11 @@ export const Desk: React.FC<DeskProps> = () => {
         <Route
           path="/login"
           render={() =>
-            loggedUser.isLogged ? <Redirect to="/" /> : <LoginDesk />
+            loggedUser.isLogged ? (
+              <Redirect to="/" />
+            ) : (
+              <LoginDesk users={users} />
+            )
           }
         />
         <Route component={() => <div style={{ color: "white" }}>BŁĄD</div>} />
@@ -55,11 +63,23 @@ export const Desk: React.FC<DeskProps> = () => {
 };
 
 interface User {
-  user: {
+  loggedUser: {
     id: number;
     isLogged: boolean;
     name: string;
     img: string;
     friends: [];
   };
+}
+
+interface IUsers {
+  users: {
+    login: string;
+    password: string;
+    id: number;
+    isLogged: boolean;
+    name: string;
+    img: string;
+    friends: [];
+  }[];
 }
