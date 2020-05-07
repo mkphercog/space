@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "userID": 0,
+      "text": "Cześć wsztyskim! Testowa wiadomość, mam nadzieję, że wszystko działa. Miłego eksplorowania. :)"
+    },
+    {
+      "userID": 1,
+      "text": "Hello! :)"
+    },
+    {
+      "userID": 5,
+      "text": "Cześć! :D"
+    }
+  ]
+}

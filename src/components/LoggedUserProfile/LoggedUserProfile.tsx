@@ -1,67 +1,32 @@
 import React from "react";
 import "./LoggedUserProfile.scss";
-import { deleteUserFromFriends } from "./../../store/actions/userAction";
-import { useDispatch } from "react-redux";
+import { LoggedUserFriends } from "./LoggedUserFriends/LoggedUserFriends";
 
 export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
   loggedUser,
-  users,
-}) => {
-  const dispatch = useDispatch();
-  const getFriends = loggedUser.friends.map((friendID) =>
-    users.find((user) => user.id === friendID)
-  );
-
-  const renderFriends = getFriends.map((friend) => (
-    <div
-      key={friend?.id}
-      className="logged-user-profile__friend-img"
-      style={{ backgroundImage: `url(${friend?.img})` }}
-    >
-      <span className="logged-user-profile__friend-name">{friend?.name}</span>
-      <i
-        onClick={() => dispatch(deleteUserFromFriends(friend?.id))}
-        className="fas fa-user-minus logged-user-profile__delete-friend"
-      ></i>
+  allUsersList,
+}) => (
+  <section className="logged-user-profile">
+    <div className="logged-user-profile__wrapper-name-img">
+      <h1 className="logged-user-profile__name">{loggedUser.name}</h1>
+      <div
+        className="logged-user-profile__img"
+        style={{
+          backgroundImage: `url(${loggedUser.img})`,
+        }}
+      ></div>
     </div>
-  ));
-  return (
-    <section className="logged-user-profile">
-      <div className="logged-user-profile__wrapper-name-img">
-        <h1 className="logged-user-profile__name">{loggedUser.name}</h1>
-        <div
-          className="logged-user-profile__img"
-          style={{
-            backgroundImage: `url(${loggedUser.img ? loggedUser.img : null})`,
-          }}
-        ></div>
-      </div>
-      <div className="logged-user-profile__wrapper">
-        <h2 className="logged-user-profile__friends-title">{`Znajomi (${getFriends.length})`}</h2>
-        <div className="logged-user-profile__friend-wrapper">
-          {renderFriends.length ? (
-            <>
-              {renderFriends}
-              <div className="logged-user-profile__last-img-margin-on-mobile"></div>
-            </>
-          ) : (
-            <span className="logged-user-profile__friend-name logged-user-profile__friend-name--no-friend">
-              Brak znajomych
-            </span>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-};
+    <LoggedUserFriends loggedUser={loggedUser} allUsersList={allUsersList} />
+  </section>
+);
 
-export interface LoggedUserProfileProps {
+interface LoggedUserProfileProps {
   loggedUser: {
     name: string;
     img: string;
     friends: [];
   };
-  users: {
+  allUsersList: {
     id: number;
     isLogged: boolean;
     name: string;

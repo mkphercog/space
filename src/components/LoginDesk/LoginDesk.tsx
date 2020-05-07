@@ -1,21 +1,10 @@
 import React, { useState } from "react";
 import "./LoginDesk.scss";
-import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { useDispatch } from "react-redux";
+import { tryToLog } from "./LoginLogic";
+import { LoginInputs } from "./LoginInputs/LoginInputs";
 
-const tryToLog = (
-  users: Users,
-  login: string,
-  password: string,
-  dispatch: Function
-): boolean => {
-  const getUser = users.find((user) => user.login === login);
-  const isCorrectPassword = getUser?.password === password;
-  if (getUser && isCorrectPassword) dispatch(setUserDetails(getUser));
-  return isCorrectPassword;
-};
-
-export const LoginDesk: React.FC<LoginDeskProps> = ({ users }) => {
+export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
   const [loginValue, setLoginValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [loginError, setLoginError] = useState(false);
@@ -23,9 +12,14 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ users }) => {
 
   const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const loginResult = tryToLog(users, loginValue, passwordValue, dispatch);
-    if (loginResult) dispatch(setLoginUser(loginResult));
-    else {
+    const loginResult = tryToLog(
+      allUsersList,
+      loginValue,
+      passwordValue,
+      dispatch
+    );
+
+    if (!loginResult) {
       setLoginError(true);
       setTimeout(() => setLoginError(false), 1500);
     }
@@ -39,19 +33,16 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ users }) => {
           handleSubmitLogin(e);
         }}
       >
-        <label className="login-desk__label">Login</label>
-        <input
-          className="login-desk__input"
-          type="text"
-          value={loginValue}
-          onChange={(e) => setLoginValue(e.target.value)}
+        <LoginInputs
+          labelName="Login"
+          inputValue={loginValue}
+          setInputValue={setLoginValue}
         />
-        <label className="login-desk__label">Hasło</label>
-        <input
-          className="login-desk__input login-desk__input--security"
-          type="text"
-          value={passwordValue}
-          onChange={(e) => setPasswordValue(e.target.value)}
+        <LoginInputs
+          labelName="Hasło"
+          inputValue={passwordValue}
+          setInputValue={setPasswordValue}
+          classModifier="login-desk__input--security"
         />
         <button className="login-desk__btn">Zaloguj się</button>
       </form>
@@ -65,7 +56,7 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ users }) => {
 };
 
 export interface LoginDeskProps {
-  users: {
+  allUsersList: {
     login: string;
     password: string;
     id: number;
@@ -75,13 +66,3 @@ export interface LoginDeskProps {
     friends: [];
   }[];
 }
-
-type Users = {
-  login: string;
-  password: string;
-  id: number;
-  isLogged: boolean;
-  name: string;
-  img: string;
-  friends: [];
-}[];

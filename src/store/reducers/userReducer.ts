@@ -1,6 +1,7 @@
 import {
   SET_LOGIN_USER,
   SET_USER_DETAILS,
+  RESET_USER_DETAILS,
   ADD_USER_TO_FRIENDS,
   DELETE_USER_FROM_FRIENDS,
 } from "./../types";
@@ -27,6 +28,11 @@ export const userReducer = (state = INITIAL_STATE, action: Action) => {
         name: action.name,
         img: action.img,
         friends: action.friends,
+      };
+    case RESET_USER_DETAILS:
+      return {
+        ...state,
+        ...INITIAL_STATE,
       };
     case ADD_USER_TO_FRIENDS:
       return {

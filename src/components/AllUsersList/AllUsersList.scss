@@ -1,0 +1,13 @@
+.all-users-list {
+  width: 100%;
+  animation: showAnimation 1.3s linear both;
+
+  @keyframes showAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

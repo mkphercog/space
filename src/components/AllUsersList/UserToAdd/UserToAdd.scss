@@ -1,18 +1,4 @@
-.users {
-  width: 100%;
-  animation: showAnimation 1.3s linear both;
-
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-.users__wrapper {
+.user-to-add__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +21,7 @@
   }
 }
 
-.users__image {
+.user-to-add__image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -47,7 +33,7 @@
   }
 }
 
-.users__name {
+.user-to-add__name {
   font-weight: bold;
   padding-left: 20px;
   color: white;
@@ -57,7 +43,7 @@
   }
 }
 
-.users__add-friend-icon {
+.user-to-add__add-friend-icon {
   padding: 10px 20px;
   font-size: 30px;
   color: rgba(30, 143, 255, 0.7);
@@ -73,17 +59,17 @@
 }
 
 @media (min-width: 1024px) {
-  .users__add-friend-icon:hover {
+  .user-to-add__add-friend-icon:hover {
     text-shadow: 0 0 10px dodgerblue;
   }
 }
 
-.users__add-friend-icon--added {
+.user-to-add__add-friend-icon--added {
   color: yellowgreen;
 }
 
 @media (min-width: 1024px) {
-  .users__add-friend-icon--added:hover {
+  .user-to-add__add-friend-icon--added:hover {
     text-shadow: 0 0 0 yellowgreen;
     cursor: auto;
   }

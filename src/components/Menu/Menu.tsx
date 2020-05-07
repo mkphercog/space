@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import "./Menu.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import SpaceBG from "./../../images/space-bg.jpg";
 import { NavLink } from "react-router-dom";
 import { hideMenu } from "./../../store/actions/menuAction";
-import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
+import {
+  setLoginUser,
+  resetUserDetails,
+} from "./../../store/actions/userAction";
 
-const SpaceBgImage = { backgroundImage: `url(${SpaceBG})` };
+const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
-const defaultUserState = {
-  id: 0,
-  name: "Nieznajomy",
-  img: "",
-  friends: [],
-};
-
-export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
+export const Menu: React.FC = () => {
+  const dispatch = useDispatch();
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
   const userIsLogged = useSelector((state: User) => state.loggedUser.isLogged);
   const [menuLoad, setMenuLoad] = useState(false);
@@ -24,7 +21,7 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
   if (menuVisibility && !menuLoad) setMenuLoad(true);
 
   return (
-    <nav className={`menu ${menuLoad ? animation : ""}`} style={SpaceBgImage}>
+    <nav className={`menu ${menuLoad ? animation : ""}`} style={spaceBgImage}>
       <ul className="menu__container">
         <NavLink
           className="menu__link"
@@ -70,7 +67,7 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
             onClick={() => {
               dispatch(hideMenu());
               dispatch(setLoginUser(false));
-              dispatch(setUserDetails(defaultUserState));
+              dispatch(resetUserDetails());
             }}
           >
             Wyloguj
@@ -88,10 +85,6 @@ export const Menu: React.FC<MenuProps> = ({ dispatch }) => {
     </nav>
   );
 };
-
-export interface MenuProps {
-  dispatch: Function;
-}
 
 interface Menu {
   menu: {

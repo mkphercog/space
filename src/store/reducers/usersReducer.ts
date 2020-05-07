@@ -13,9 +13,3 @@ export const usersReducer = (state = INITAL_STATE, action: Action) => {
 interface Action {
   type: string;
 }
-
-interface Users {
-  accounts: {
-    password: string;
-  }[];
-}

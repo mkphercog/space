@@ -1,14 +1,16 @@
 import React from "react";
 import "./AboutApp.scss";
-import {
-  welcomeLogged,
+import { loggedDesc, unloggedDesc } from "./AboutAppDesc";
+
+const { welcomeLogged } = loggedDesc;
+const {
   welcomeUnlogged,
+  likeSocialMedia,
   letsTestIt,
   login,
   password,
-  likeSocialMedia,
   notSave,
-} from "./AboutAppDesc";
+} = unloggedDesc;
 
 export const AboutApp: React.FC<AboutAppProps> = ({ loggedUser }) => (
   <section className="about-app">
@@ -24,7 +26,7 @@ export const AboutApp: React.FC<AboutAppProps> = ({ loggedUser }) => (
   </section>
 );
 
-export interface AboutAppProps {
+interface AboutAppProps {
   loggedUser: {
     isLogged: boolean;
     name: string;

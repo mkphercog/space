@@ -1,10 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { hideMenu, showMenu } from "./../../store/actions/menuAction";
 import "./MenuIcon.scss";
 
-export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
+export const MenuIcon: React.FC = () => {
   const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
+  const dispatch = useDispatch();
 
   const topAnimation = menuVisibility
     ? "menu-icon__bar--top-animation"
@@ -36,10 +37,6 @@ export const MenuIcon: React.FC<MenuIconProps> = ({ dispatch }) => {
     </div>
   );
 };
-
-export interface MenuIconProps {
-  dispatch: Function;
-}
 
 interface Menu {
   menu: {

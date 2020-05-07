@@ -1,18 +1,16 @@
 import React from "react";
-import "./Desk.scss";
+import "./SubpagesContent.scss";
 import { useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { AboutApp } from "./../AboutApp/AboutApp";
-import { LoginDesk } from "./../LoginDesk/LoginDesk";
-import { Board } from "./../Board/Board";
+import { AboutApp } from "../AboutApp/AboutApp";
+import { LoginDesk } from "../LoginDesk/LoginDesk";
+import { Board } from "../Board/Board";
 import { LoggedUserProfile } from "../LoggedUserProfile/LoggedUserProfile";
-import { Users } from "./../Users/Users";
+import { AllUsersList } from "../AllUsersList/AllUsersList";
 
-export interface DeskProps {}
-
-export const Desk: React.FC<DeskProps> = () => {
+export const SubpagesContent: React.FC = () => {
   const loggedUser = useSelector((state: User) => state.loggedUser);
-  const users = useSelector((state: IUsers) => state.users);
+  const allUsersList = useSelector((state: Users) => state.allUsersList);
 
   return (
     <main className="desk">
@@ -22,40 +20,53 @@ export const Desk: React.FC<DeskProps> = () => {
           exact
           render={() => <AboutApp loggedUser={loggedUser} />}
         />
+
         <Route
           path="/profile"
           render={() =>
             loggedUser.isLogged ? (
-              <LoggedUserProfile loggedUser={loggedUser} users={users} />
+              <LoggedUserProfile
+                loggedUser={loggedUser}
+                allUsersList={allUsersList}
+              />
             ) : (
               <Redirect to="/login" />
             )
           }
         />
+
         <Route
           path="/board"
-          render={() => <Board loggedUser={loggedUser} users={users} />}
+          render={() => (
+            <Board loggedUser={loggedUser} allUsersList={allUsersList} />
+          )}
         />
+
         <Route
           path="/users"
           render={() =>
             loggedUser.isLogged ? (
-              <Users loggedUser={loggedUser} users={users} />
+              <AllUsersList
+                loggedUser={loggedUser}
+                allUsersList={allUsersList}
+              />
             ) : (
               <Redirect to="/login" />
             )
           }
         />
+
         <Route
           path="/login"
           render={() =>
             loggedUser.isLogged ? (
               <Redirect to="/" />
             ) : (
-              <LoginDesk users={users} />
+              <LoginDesk allUsersList={allUsersList} />
             )
           }
         />
+
         <Route component={() => <div style={{ color: "white" }}>BŁĄD</div>} />
       </Switch>
     </main>
@@ -72,8 +83,8 @@ interface User {
   };
 }
 
-interface IUsers {
-  users: {
+interface Users {
+  allUsersList: {
     login: string;
     password: string;
     id: number;

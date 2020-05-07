@@ -1,6 +1,7 @@
 import {
   SET_LOGIN_USER,
   SET_USER_DETAILS,
+  RESET_USER_DETAILS,
   ADD_USER_TO_FRIENDS,
   DELETE_USER_FROM_FRIENDS,
 } from "./../types";
@@ -16,6 +17,10 @@ export const setUserDetails = ({ id, name, img, friends }: User) => ({
   name: name,
   img: img,
   friends: friends,
+});
+
+export const resetUserDetails = () => ({
+  type: RESET_USER_DETAILS,
 });
 
 export const addUserToFriends = (newFriendID: number) => ({

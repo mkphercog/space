@@ -1,8 +1,8 @@
-const loggedDesc = {
+export const loggedDesc = {
   welcomeLogged: "Cieszymy się, że znów jesteś z nami!",
 };
 
-const unloggedDesc = {
+export const unloggedDesc = {
   welcomeUnlogged:
     "Space to przestrzeń dla Ciebie i Twoich znajomych! Zaloguj się aby zarządzać listą znajomych, sprawdzić tablicę aktualności czy zareagować na komentarz znajomego.",
   likeSocialMedia: `Aktualnie aplikacja jest swego rodzaju stymulacją prawdziwej strony
@@ -12,14 +12,3 @@ const unloggedDesc = {
   password: "Hasło: test",
   notSave: "Wszelkie zmiany nie zostaną zapisane.",
 };
-
-export const { welcomeLogged } = loggedDesc;
-
-export const {
-  welcomeUnlogged,
-  likeSocialMedia,
-  letsTestIt,
-  login,
-  password,
-  notSave,
-} = unloggedDesc;
