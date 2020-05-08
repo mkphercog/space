@@ -11,6 +11,14 @@
     {
       "userID": 5,
       "text": "Cześć! :D"
+    },
+    {
+      "userID": 7,
+      "text": "Meow!"
+    },
+    {
+      "userID": 3,
+      "text": "hasdasdias"
     }
   ]
 }

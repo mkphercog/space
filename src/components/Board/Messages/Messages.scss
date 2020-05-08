@@ -1,3 +1,8 @@
+.messages__wrapper {
+  flex-grow: 1;
+  overflow: auto;
+}
+
 .message {
   display: flex;
   flex-direction: column;
@@ -6,7 +11,7 @@
   background-color: rgba(45, 45, 45, 0.2);
   border-radius: 20px;
   box-shadow: 0 0 4px 2px black;
-  margin: 20px auto 0;
+  margin: 20px auto;
 
   @media (orientation: landscape) {
     width: 60%;

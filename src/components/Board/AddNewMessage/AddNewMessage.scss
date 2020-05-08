@@ -1,0 +1,71 @@
+.add-new-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0;
+
+  @media (min-width: 768px) {
+    padding: 10px 0;
+  }
+}
+
+.add-new-message__logged-user-img {
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-right: 10px;
+
+  @media (min-width: 768px) {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.add-new-message__form {
+  position: relative;
+}
+
+.add-new-message__input {
+  padding: 7px 35px 5px 8px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 3px 1px rgb(148, 169, 190);
+
+  @media (min-width: 768px) {
+    padding-right: 40px;
+    font-size: 20px;
+  }
+}
+
+.add-new-message__send-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+}
+
+.add-new-message__send-icon {
+  transform: rotate(-45deg);
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.75);
+  transition: 0.3s;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-new-message__send-icon:hover {
+    color: dodgerblue;
+    cursor: pointer;
+  }
+}

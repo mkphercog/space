@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./Messages.scss";
 
+const scrollDown = () => {
+  const messageWrap = document.getElementById("messages__wrapper");
+
+  messageWrap?.scrollTo(0, messageWrap.scrollHeight);
+};
+
 export const Messages: React.FC<MessagesProps> = ({ allUsersList }) => {
-  const messTemp = useSelector((state: Messages) => state.messages);
+  const messTemp = useSelector(
+    (state: Messages) => state.messages.globalMessages
+  );
+
+  useEffect(() => {
+    scrollDown();
+  });
 
   const renderMessages = messTemp.map((mess, index) => (
     <div key={index} className="message">
@@ -18,7 +30,11 @@ export const Messages: React.FC<MessagesProps> = ({ allUsersList }) => {
     </div>
   ));
 
-  return <>{renderMessages}</>;
+  return (
+    <div className="messages__wrapper" id="messages__wrapper">
+      {renderMessages}
+    </div>
+  );
 };
 
 interface MessagesProps {
@@ -33,7 +49,9 @@ interface MessagesProps {
 
 interface Messages {
   messages: {
-    userID: number;
-    text: string;
-  }[];
+    globalMessages: {
+      userID: number;
+      text: string;
+    }[];
+  };
 }
