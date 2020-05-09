@@ -8,10 +8,21 @@ export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
   const [messageValue, setMessageValue] = useState("");
 
   const handleSubmitMessage = (e: React.FormEvent<HTMLFormElement>) => {
+    const messageTime = new Date().toLocaleTimeString();
+    let messageDate = new Date().toLocaleDateString();
+    const dayDotIndex = messageDate.indexOf(".");
+
     e.preventDefault();
 
+    if (dayDotIndex === 1) messageDate = `0${messageDate}`;
+
     if (messageValue) {
-      const newMessage = { userID: loggedUser.id, text: messageValue };
+      const newMessage = {
+        userID: loggedUser.id,
+        text: messageValue,
+        time: messageTime,
+        date: messageDate,
+      };
       dispatch(addGlobalMessage(newMessage));
       setMessageValue("");
     } else {

@@ -8,4 +8,6 @@ export const addGlobalMessage = (newMessage: NewMessage) => ({
 interface NewMessage {
   userID: number;
   text: string;
+  time: string;
+  date: string;
 }

@@ -22,5 +22,7 @@ interface Action {
   newMessage: {
     userID: number;
     text: string;
+    time: string;
+    date: string;
   };
 }

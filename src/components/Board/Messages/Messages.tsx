@@ -4,7 +4,6 @@ import "./Messages.scss";
 
 const scrollDown = () => {
   const messageWrap = document.getElementById("messages__wrapper");
-
   messageWrap?.scrollTo(0, messageWrap.scrollHeight);
 };
 
@@ -25,6 +24,7 @@ export const Messages: React.FC<MessagesProps> = ({ allUsersList }) => {
           style={{ backgroundImage: `url(${allUsersList[mess.userID].img})` }}
         ></div>
         <p className="message__user-name">{allUsersList[mess.userID].name}</p>
+        <p className="message__time-and-date">{`${mess.date} o ${mess.time}`}</p>
       </div>
       <p className="message__text">{mess.text}</p>
     </div>
@@ -52,6 +52,8 @@ interface Messages {
     globalMessages: {
       userID: number;
       text: string;
+      time: string;
+      date: string;
     }[];
   };
 }

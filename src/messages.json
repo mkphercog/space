@@ -2,23 +2,33 @@
   "messages": [
     {
       "userID": 0,
-      "text": "Cześć wsztyskim! Testowa wiadomość, mam nadzieję, że wszystko działa. Miłego eksplorowania. :)"
+      "text": "Cześć wsztyskim! Testowa wiadomość, mam nadzieję, że wszystko działa. Miłego eksplorowania. :)",
+      "time": "19:54:48",
+      "date": "09.05.2020"
     },
     {
       "userID": 1,
-      "text": "Hello! :)"
+      "text": "Hello! :)",
+      "time": "19:55:48",
+      "date": "09.05.2020"
     },
     {
       "userID": 5,
-      "text": "Cześć! :D"
+      "text": "Cześć! :D",
+      "time": "19:55:59",
+      "date": "09.05.2020"
     },
     {
       "userID": 7,
-      "text": "Meow!"
+      "text": "Meow!",
+      "time": "19:58:48",
+      "date": "09.05.2020"
     },
     {
       "userID": 3,
-      "text": "hasdasdias"
+      "text": "Suuuuper",
+      "time": "06:54:22",
+      "date": "10.05.2020"
     }
   ]
 }
