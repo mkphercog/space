@@ -3,9 +3,8 @@ import "./Registration.scss";
 import { RegistrationInputs } from "./RegistrationInputs/RegistrationInputs";
 import { useDispatch } from "react-redux";
 import { addNewRegistredUser } from "./../../store/actions/usersAction";
-import DefaultIMG from "./../../images/astronaut.png";
 import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
-import { validation } from "./RegistrationLogic";
+import { profileSketchs, validation } from "./RegistrationLogic";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,
@@ -24,13 +23,15 @@ export const Registration: React.FC<RegistrationProps> = ({
     );
     if (isLoginUsed === -1) {
       if (registrationResult === true) {
+        const sketchIndex = Math.floor(Math.random() * profileSketchs.length);
+        console.log(sketchIndex);
         const newID = lastUserID + 1;
         const newUser = {
           id: newID,
           login: loginValue,
           password: passwordValue,
           name: nameValue,
-          img: DefaultIMG,
+          img: profileSketchs[sketchIndex],
           friends: [],
         };
         dispatch(addNewRegistredUser(newUser));

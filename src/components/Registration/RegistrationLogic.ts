@@ -1,3 +1,25 @@
+import Astronaut from "./../../images/profile_default_sketchs_png/astronaut.png";
+import Astronaut2 from "./../../images/profile_default_sketchs_png/astronaut2.png";
+import Meteor from "./../../images/profile_default_sketchs_png/meteor.png";
+import Moon from "./../../images/profile_default_sketchs_png/moon.png";
+import Planet from "./../../images/profile_default_sketchs_png/planet.png";
+import Rocket from "./../../images/profile_default_sketchs_png/rocket.png";
+import SmallRocket from "./../../images/profile_default_sketchs_png/small-rocket.png";
+import Sonda from "./../../images/profile_default_sketchs_png/sonda.png";
+import Star from "./../../images/profile_default_sketchs_png/star.png";
+
+export const profileSketchs = [
+  Astronaut,
+  Astronaut2,
+  Meteor,
+  Moon,
+  Planet,
+  Rocket,
+  SmallRocket,
+  Sonda,
+  Star,
+];
+
 export const validation = (
   login: string,
   name: string,

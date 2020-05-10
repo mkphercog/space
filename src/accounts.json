@@ -13,7 +13,7 @@
       "login": "heniu",
       "password": "heniu123",
       "name": "Heniu",
-      "img": "https://cdn.pixabay.com/photo/2019/11/24/17/49/chicken-4649906_960_720.jpg",
+      "img": "https://cdn.pixabay.com/photo/2016/12/10/19/38/moon-1898047_960_720.png",
       "friends": [0]
     },
     {
@@ -29,7 +29,7 @@
       "login": "Monika",
       "password": "monika123",
       "name": "Monika",
-      "img": "https://cdn.pixabay.com/photo/2011/12/13/14/28/earth-11009_960_720.jpg",
+      "img": "https://cdn.pixabay.com/photo/2016/02/04/13/49/the-earth-1179212_960_720.png",
       "friends": [0]
     },
     {
@@ -37,7 +37,7 @@
       "login": "Tomasz",
       "password": "tomasz123",
       "name": "Tomasz",
-      "img": "https://cdn.pixabay.com/photo/2011/12/13/17/09/astronaut-11050_960_720.jpg",
+      "img": "https://cdn.pixabay.com/photo/2016/10/05/17/11/rocket-1717160_960_720.png",
       "friends": [0]
     },
     {
@@ -53,7 +53,7 @@
       "login": "Jerzy",
       "password": "jerzy123",
       "name": "Jerzy",
-      "img": "https://cdn.pixabay.com/photo/2011/12/13/17/10/omega-nebula-11053_960_720.jpg",
+      "img": "https://cdn.pixabay.com/photo/2017/01/31/15/07/astronaut-2024888_960_720.png",
       "friends": [0]
     },
     {
@@ -69,7 +69,7 @@
       "login": "Robert",
       "password": "robert123",
       "name": "Robert",
-      "img": "https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_960_720.jpg",
+      "img": "https://cdn.pixabay.com/photo/2013/07/12/18/36/jupiter-153563_960_720.png",
       "friends": [0]
     }
   ]

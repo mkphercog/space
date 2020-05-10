@@ -60,6 +60,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
+  box-shadow: 0 0 5px 1px black;
 
   @media (min-width: 411px) {
     width: 210px;
@@ -74,6 +75,5 @@
   @media (min-width: 1024px) {
     width: 280px;
     height: 280px;
-    margin: 30px;
   }
 }
