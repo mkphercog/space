@@ -7,7 +7,7 @@ import {
 } from "./../types";
 
 const INITIAL_STATE = {
-  id: 0,
+  id: -1,
   isLogged: false,
   name: "Nieznajomy",
   img: "",
