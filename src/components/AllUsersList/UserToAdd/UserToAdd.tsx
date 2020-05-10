@@ -1,6 +1,7 @@
 import React from "react";
 import "./UserToAdd.scss";
 import { addUserToFriends } from "./../../../store/actions/userAction";
+import { setNotificationBar } from "../../../store/actions/notificationBarAction";
 
 export const UserToAdd: React.FC<UserToAddProps> = ({
   globalUser,
@@ -17,7 +18,16 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
       <i className="fas fa-check user-to-add__add-friend-icon user-to-add__add-friend-icon--added"></i>
     ) : (
       <i
-        onClick={() => dispatch(addUserToFriends(globalUser.id))}
+        onClick={() => {
+          dispatch(
+            setNotificationBar(
+              `Dodano ${globalUser.name} do znajomych.`,
+              "green",
+              true
+            )
+          );
+          dispatch(addUserToFriends(globalUser.id));
+        }}
         className="fas fa-user-plus user-to-add__add-friend-icon"
       ></i>
     )}

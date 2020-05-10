@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import { tryToLog } from "./LoginLogic";
 import { LoginInputs } from "./LoginInputs/LoginInputs";
 import { NavLink } from "react-router-dom";
+import { setNotificationBar } from "./../../store/actions/notificationBarAction";
 
 export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
   const [loginValue, setLoginValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
-  const [loginError, setLoginError] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,8 +21,9 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
     );
 
     if (!loginResult) {
-      setLoginError(true);
-      setTimeout(() => setLoginError(false), 1500);
+      dispatch(
+        setNotificationBar("Błąd logowania. Spróbuj ponownie.", "red", true)
+      );
     }
   };
 
@@ -50,11 +51,6 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
       <NavLink className="login-desk__registration-link" to="/registration">
         Nie masz konta? Zarejestruj się tutaj.
       </NavLink>
-      {loginError ? (
-        <p className="login-desk__login-error">
-          Błąd logowania. Spróbuj ponownie.
-        </p>
-      ) : null}
     </section>
   );
 };

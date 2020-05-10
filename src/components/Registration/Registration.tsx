@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addNewRegistredUser } from "./../../store/actions/usersAction";
 import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { profileSketchs, validation } from "./RegistrationLogic";
+import { setNotificationBar } from "./../../store/actions/notificationBarAction";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,
@@ -24,7 +25,6 @@ export const Registration: React.FC<RegistrationProps> = ({
     if (isLoginUsed === -1) {
       if (registrationResult === true) {
         const sketchIndex = Math.floor(Math.random() * profileSketchs.length);
-        console.log(sketchIndex);
         const newID = lastUserID + 1;
         const newUser = {
           id: newID,
@@ -35,14 +35,20 @@ export const Registration: React.FC<RegistrationProps> = ({
           friends: [],
         };
         dispatch(addNewRegistredUser(newUser));
-        alert("Dziękujemy za rejestrację, miłego explorowania!");
+        dispatch(
+          setNotificationBar(
+            "Dziękujemy za rejestrację, miłego explorowania!",
+            "green",
+            true
+          )
+        );
         dispatch(setUserDetails(newUser));
         dispatch(setLoginUser(true));
       } else {
-        alert(registrationResult);
+        dispatch(setNotificationBar(registrationResult as string, "red", true));
       }
     } else {
-      alert("Login jest już zajęty!");
+      dispatch(setNotificationBar("Login jest już zajęty!", "red", true));
     }
   };
 
@@ -75,7 +81,7 @@ export const Registration: React.FC<RegistrationProps> = ({
 
         <p className="registration__info">
           Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
-          zmiany nie zostaną zapisane!
+          zmiany zostaną utracone!
         </p>
       </form>
     </section>

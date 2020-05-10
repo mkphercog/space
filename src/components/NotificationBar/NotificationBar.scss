@@ -1,0 +1,74 @@
+.notification-bar {
+  position: fixed;
+  bottom: 50px;
+  right: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 25px;
+  border-radius: 20px;
+
+  @media (orientation: landscape) {
+    max-width: 60%;
+  }
+
+  @media (min-width: 411px) {
+    max-width: 75%;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 65%;
+  }
+}
+
+.notification-bar--green {
+  background-color: yellowgreen;
+  box-shadow: 0 0 5px 2px yellowgreen;
+}
+
+.notification-bar--red {
+  background-color: darkred;
+  box-shadow: 0 0 5px 2px darkred;
+}
+
+.notification-bar--animation {
+  animation: animationBar 1.8s linear;
+
+  @keyframes animationBar {
+    0% {
+      opacity: 1;
+      right: -100%;
+    }
+    5% {
+      opacity: 1;
+      right: 10px;
+    }
+    70% {
+      opacity: 1;
+      right: 10px;
+    }
+    85% {
+      opacity: 0;
+      right: 10px;
+    }
+    95% {
+      opacity: 0;
+      right: 10px;
+    }
+    100% {
+      opacity: 0;
+      right: -100%;
+    }
+  }
+}
+
+.notification-bar__message {
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}

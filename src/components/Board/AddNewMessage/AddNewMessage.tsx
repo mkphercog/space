@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./AddNewMessage.scss";
 import { addGlobalMessage } from "./../../../store/actions/messagesAction";
+import { setNotificationBar } from "../../../store/actions/notificationBarAction";
 
 export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
       dispatch(addGlobalMessage(newMessage));
       setMessageValue("");
     } else {
-      alert("Wpisz coś ! potem wyskakujące okienko jak przy dodaniu znajomych");
+      dispatch(setNotificationBar("Wpisz wiadomość.", "red", true));
     }
   };
 

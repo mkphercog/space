@@ -2,6 +2,7 @@ import React from "react";
 import "./LoggedUserFriends.scss";
 import { useDispatch } from "react-redux";
 import { deleteUserFromFriends } from "./../../../store/actions/userAction";
+import { setNotificationBar } from "../../../store/actions/notificationBarAction";
 
 export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
   loggedUser,
@@ -20,7 +21,16 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
     >
       <span className="logged-user-friends__friend-name">{friend?.name}</span>
       <i
-        onClick={() => dispatch(deleteUserFromFriends(friend?.id))}
+        onClick={() => {
+          dispatch(deleteUserFromFriends(friend?.id));
+          dispatch(
+            setNotificationBar(
+              `Usunięto ${friend?.name} ze znajomych.`,
+              "red",
+              true
+            )
+          );
+        }}
         className="fas fa-user-minus logged-user-friends__delete-friend"
       ></i>
     </div>
