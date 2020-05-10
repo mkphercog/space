@@ -1,6 +1,7 @@
 import React from "react";
 import "./AboutApp.scss";
 import { loggedDesc, unloggedDesc } from "./AboutAppDesc";
+import { NavLink } from "react-router-dom";
 
 const { welcomeLogged } = loggedDesc;
 const { welcomeUnlogged, likeSocialMedia, letsTestIt, notSave } = unloggedDesc;
@@ -13,6 +14,9 @@ export const AboutApp: React.FC<AboutAppProps> = ({ loggedUser }) => (
     </p>
     <p className="about-app__desc">{likeSocialMedia}</p>
     <p className="about-app__desc">{loggedUser.isLogged ? null : letsTestIt}</p>
+    <NavLink className="about-app__registration-link" to="/registration">
+      Przejdź do rejestracji
+    </NavLink>
     <p className="about-app__desc">{notSave}</p>
   </section>
 );

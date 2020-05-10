@@ -7,7 +7,6 @@ export const unloggedDesc = {
     "Space to przestrzeń dla Ciebie i Twoich znajomych! Zaloguj się aby zarządzać listą znajomych, sprawdzić tablicę aktualności czy odpisać na komentarz znajomego.",
   likeSocialMedia: `Aktualnie aplikacja jest swego rodzaju stymulacją prawdziwej strony
    social media.`,
-  letsTestIt:
-    "Chcesz wytestować aplikację? Zarejestruj się w zakładce Rejestracja!",
+  letsTestIt: `Chcesz wytestować aplikację? Zarejestruj się w zakładce rejestracja, lub kliknij przycisk poniżej.`,
   notSave: "Pamiętaj że, wszelkie zmiany nie zostaną zapisane.",
 };

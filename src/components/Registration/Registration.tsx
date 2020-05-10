@@ -71,19 +71,21 @@ export const Registration: React.FC<RegistrationProps> = ({
         />
 
         <RegistrationInputs
-          labelName="Hasło"
+          labelName="Hasło*"
           inputValue={passwordValue}
           setInputValue={setPasswordValue}
           classModifier="registration__input--security"
         />
+        <p className="registration__info-password">
+          *Hasło: minimum 5 znaków i przynajmniej jedna cyfra.
+        </p>
 
         <button className="registration__btn">Zarejestruj się</button>
-
-        <p className="registration__info">
-          Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
-          zmiany zostaną utracone!
-        </p>
       </form>
+      <p className="registration__info registration__info--animation">
+        Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
+        zmiany zostaną utracone!
+      </p>
     </section>
   );
 };

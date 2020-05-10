@@ -69,11 +69,14 @@
   text-align: center;
   color: white;
   font-size: 14px;
-  animation: colorfull 5s infinite;
 
   @media (min-width: 768px) {
     font-size: 20px;
   }
+}
+
+.registration__info--animation {
+  animation: colorfull 5s infinite;
 
   @keyframes colorfull {
     0% {
@@ -94,5 +97,15 @@
     100% {
       color: white;
     }
+  }
+}
+
+.registration__info-password {
+  text-align: center;
+  color: white;
+  font-size: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 10px;
   }
 }
