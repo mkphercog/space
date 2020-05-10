@@ -14,9 +14,11 @@ export const AboutApp: React.FC<AboutAppProps> = ({ loggedUser }) => (
     </p>
     <p className="about-app__desc">{likeSocialMedia}</p>
     <p className="about-app__desc">{loggedUser.isLogged ? null : letsTestIt}</p>
-    <NavLink className="about-app__registration-link" to="/registration">
-      Przejdź do rejestracji
-    </NavLink>
+    {loggedUser.isLogged ? null : (
+      <NavLink className="about-app__registration-link" to="/registration">
+        Przejdź do rejestracji
+      </NavLink>
+    )}
     <p className="about-app__desc">{notSave}</p>
   </section>
 );
