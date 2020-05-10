@@ -3,7 +3,7 @@ import "./LoggedUserFriends.scss";
 import { useDispatch } from "react-redux";
 import { deleteUserFromFriends } from "./../../../store/actions/userAction";
 
-export const LoggedUserFriends: React.SFC<LoggedUserFriendsProps> = ({
+export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
   loggedUser,
   allUsersList,
 }) => {

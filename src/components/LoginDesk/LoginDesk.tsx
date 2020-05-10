@@ -3,6 +3,7 @@ import "./LoginDesk.scss";
 import { useDispatch } from "react-redux";
 import { tryToLog } from "./LoginLogic";
 import { LoginInputs } from "./LoginInputs/LoginInputs";
+import { NavLink } from "react-router-dom";
 
 export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
   const [loginValue, setLoginValue] = useState("");
@@ -46,6 +47,9 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
         />
         <button className="login-desk__btn">Zaloguj się</button>
       </form>
+      <NavLink className="login-desk__registration-link" to="/registration">
+        Nie masz konta? Zarejestruj się tutaj.
+      </NavLink>
       {loginError ? (
         <p className="login-desk__login-error">
           Błąd logowania. Spróbuj ponownie.

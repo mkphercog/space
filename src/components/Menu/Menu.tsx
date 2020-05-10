@@ -81,6 +81,16 @@ export const Menu: React.FC = () => {
             Logowanie
           </NavLink>
         )}
+
+        {userIsLogged ? null : (
+          <NavLink
+            className="menu__link"
+            to="/registration"
+            onClick={() => dispatch(hideMenu())}
+          >
+            Rejestracja
+          </NavLink>
+        )}
       </ul>
     </nav>
   );

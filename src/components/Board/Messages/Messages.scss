@@ -63,12 +63,18 @@
 }
 
 .message__user-name {
+  width: 50%;
   font-weight: bold;
   font-size: 16px;
   color: white;
+  overflow-wrap: break-word;
 
   @media (min-width: 768px) {
     font-size: 22px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 60%;
   }
 }
 

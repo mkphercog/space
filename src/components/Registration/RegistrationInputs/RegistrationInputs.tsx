@@ -1,16 +1,16 @@
 import React from "react";
-import "./LoginInputs.scss";
+import "./RegistrationInputs.scss";
 
-export const LoginInputs: React.FC<LoginInputsProps> = ({
+export const RegistrationInputs: React.FC<RegistrationInputsProps> = ({
   labelName,
   inputValue,
   setInputValue,
   classModifier = "",
 }) => (
   <>
-    <label className="login-desk__label">{labelName}</label>
+    <label className="registration__label">{labelName}</label>
     <input
-      className={`login-desk__input ${classModifier}`}
+      className={`registration__input ${classModifier}`}
       type="text"
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
@@ -18,7 +18,7 @@ export const LoginInputs: React.FC<LoginInputsProps> = ({
   </>
 );
 
-interface LoginInputsProps {
+interface RegistrationInputsProps {
   labelName: string;
   inputValue: string;
   setInputValue: Function;

@@ -7,6 +7,6 @@ import { messageReducer } from "./messagesReducer";
 export const rootReducer = combineReducers({
   menu: menuReducer,
   loggedUser: userReducer,
-  allUsersList: usersReducer,
+  allUsers: usersReducer,
   messages: messageReducer,
 });

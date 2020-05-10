@@ -7,10 +7,11 @@ import { LoginDesk } from "../LoginDesk/LoginDesk";
 import { Board } from "../Board/Board";
 import { LoggedUserProfile } from "../LoggedUserProfile/LoggedUserProfile";
 import { AllUsersList } from "../AllUsersList/AllUsersList";
+import { Registration } from "../Registration/Registration";
 
 export const SubpagesContent: React.FC = () => {
   const loggedUser = useSelector((state: User) => state.loggedUser);
-  const allUsersList = useSelector((state: Users) => state.allUsersList);
+  const allUsers = useSelector((state: Users) => state.allUsers);
 
   return (
     <main className="desk">
@@ -27,7 +28,7 @@ export const SubpagesContent: React.FC = () => {
             loggedUser.isLogged ? (
               <LoggedUserProfile
                 loggedUser={loggedUser}
-                allUsersList={allUsersList}
+                allUsersList={allUsers.list}
               />
             ) : (
               <Redirect to="/login" />
@@ -38,7 +39,7 @@ export const SubpagesContent: React.FC = () => {
         <Route
           path="/board"
           render={() => (
-            <Board loggedUser={loggedUser} allUsersList={allUsersList} />
+            <Board loggedUser={loggedUser} allUsersList={allUsers.list} />
           )}
         />
 
@@ -48,7 +49,7 @@ export const SubpagesContent: React.FC = () => {
             loggedUser.isLogged ? (
               <AllUsersList
                 loggedUser={loggedUser}
-                allUsersList={allUsersList}
+                allUsersList={allUsers.list}
               />
             ) : (
               <Redirect to="/login" />
@@ -62,7 +63,21 @@ export const SubpagesContent: React.FC = () => {
             loggedUser.isLogged ? (
               <Redirect to="/" />
             ) : (
-              <LoginDesk allUsersList={allUsersList} />
+              <LoginDesk allUsersList={allUsers.list} />
+            )
+          }
+        />
+
+        <Route
+          path="/registration"
+          render={() =>
+            loggedUser.isLogged ? (
+              <Redirect to="/" />
+            ) : (
+              <Registration
+                allUsersList={allUsers.list}
+                lastUserID={allUsers.lastUserID}
+              />
             )
           }
         />
@@ -84,13 +99,16 @@ interface User {
 }
 
 interface Users {
-  allUsersList: {
-    login: string;
-    password: string;
-    id: number;
-    isLogged: boolean;
-    name: string;
-    img: string;
-    friends: [];
-  }[];
+  allUsers: {
+    list: {
+      login: string;
+      password: string;
+      id: number;
+      isLogged: boolean;
+      name: string;
+      img: string;
+      friends: [];
+    }[];
+    lastUserID: number;
+  };
 }

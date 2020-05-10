@@ -1,4 +1,4 @@
-.login-desk {
+.registration {
   width: 100%;
   animation: showAnimation 1.3s linear both;
 
@@ -12,7 +12,7 @@
   }
 }
 
-.login-desk__wrapper {
+.registration__form-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@
   }
 }
 
-.login-desk__btn {
+.registration__btn {
   padding: 5px 15px;
   margin-top: 10px;
   text-transform: uppercase;
@@ -58,62 +58,41 @@
 }
 
 @media (min-width: 1024px) {
-  .login-desk__btn:hover {
+  .registration__btn:hover {
     background-color: yellowgreen;
     box-shadow: 0 0 10px 1px yellowgreen;
   }
 }
 
-.login-desk__login-error {
-  margin-top: 40px;
+.registration__info {
+  padding-top: 20px;
   text-align: center;
-  color: rgb(190, 8, 8);
-  font-weight: bold;
-  text-shadow: 0 0 4px darkred;
-  animation: loginErrorAnimaion 1.5s linear both;
+  color: white;
+  font-size: 14px;
+  animation: colorfull 5s infinite;
 
   @media (min-width: 768px) {
     font-size: 20px;
   }
 
-  @keyframes loginErrorAnimaion {
+  @keyframes colorfull {
     0% {
-      opacity: 0;
+      color: white;
     }
-    30% {
-      opacity: 1;
+    20% {
+      color: dodgerblue;
     }
-    70% {
-      opacity: 1;
+    40% {
+      color: yellowgreen;
+    }
+    60% {
+      color: yellowgreen;
+    }
+    80% {
+      color: dodgerblue;
     }
     100% {
-      opacity: 0;
+      color: white;
     }
-  }
-}
-
-.login-desk__registration-link {
-  display: block;
-  width: 100%;
-  margin-top: 40px;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-
-  @media (min-width: 411px) {
-    font-size: 14px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 17px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .login-desk__registration-link:hover {
-    color: yellowgreen;
-    cursor: pointer;
   }
 }

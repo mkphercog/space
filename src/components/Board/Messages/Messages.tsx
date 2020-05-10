@@ -24,7 +24,7 @@ export const Messages: React.FC<MessagesProps> = ({ allUsersList }) => {
           style={{ backgroundImage: `url(${allUsersList[mess.userID].img})` }}
         ></div>
         <p className="message__user-name">{allUsersList[mess.userID].name}</p>
-        <p className="message__time-and-date">{`${mess.date} o ${mess.time}`}</p>
+        <p className="message__time-and-date">{`${mess.date} ${mess.time}`}</p>
       </div>
       <p className="message__text">{mess.text}</p>
     </div>
