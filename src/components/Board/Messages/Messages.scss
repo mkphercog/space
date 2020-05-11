@@ -14,12 +14,8 @@
   box-shadow: 0 0 4px 2px black;
   margin: 20px auto;
 
-  @media (orientation: landscape) {
-    width: 60%;
-  }
-
   @media (min-width: 768px) {
-    width: 65%;
+    width: 70%;
   }
 }
 
