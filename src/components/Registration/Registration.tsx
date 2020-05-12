@@ -30,6 +30,7 @@ export const Registration: React.FC<RegistrationProps> = ({
           id: newID,
           login: loginValue,
           password: passwordValue,
+          isLogged: false,
           name: nameValue,
           img: profileSketchs[sketchIndex],
           friends: [],
