@@ -1,19 +1,12 @@
+@import "./../../styles/mixins.scss";
+
 .logged-user-profile {
+  @include animationSubpage;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  animation: showAnimation 1.3s linear both;
-
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -54,26 +47,8 @@
 }
 
 .logged-user-profile__img {
-  width: 180px;
-  height: 180px;
+  @include imageBase(180px, 210px, 250px, 280px);
   margin-top: 10px;
-  background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 50%;
   box-shadow: 0 0 5px 1px black;
-
-  @media (min-width: 411px) {
-    width: 210px;
-    height: 210px;
-  }
-
-  @media (min-width: 768px) {
-    width: 250px;
-    height: 250px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 280px;
-    height: 280px;
-  }
 }

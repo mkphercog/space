@@ -1,3 +1,5 @@
+@import "./../../styles/variables.scss";
+
 .menu-icon {
   position: absolute;
   top: 15px;
@@ -26,7 +28,7 @@
 
 @media (min-width: 1024px) {
   .menu-icon:hover .menu-icon__bar {
-    background-color: yellowgreen;
+    background-color: $basicGreenColor;
   }
 }
 

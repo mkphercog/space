@@ -1,17 +1,17 @@
+@import "./../../../styles/mixins.scss";
+
 .messages__wrapper {
   flex-grow: 1;
   overflow: auto;
 }
 
 .message {
+  @include containerShadow;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 98%;
   padding: 10px;
-  background-color: rgba(45, 45, 45, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 0 4px 2px black;
   margin: 20px auto;
 
   @media (min-width: 768px) {

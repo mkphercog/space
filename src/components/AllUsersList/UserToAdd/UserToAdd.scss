@@ -1,12 +1,13 @@
+@import "./../../../styles/mixins.scss";
+@import "./../../../styles/variables.scss";
+
 .user-to-add__wrapper {
+  @include containerShadow;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 30px auto;
   padding: 10px;
-  background-color: rgba(45, 45, 45, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 0 4px 2px black;
 
   @media (orientation: landscape) {
     width: 70%;
@@ -22,22 +23,13 @@
 }
 
 .user-to-add__image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-size: cover;
-
-  @media (min-width: 768px) {
-    width: 70px;
-    height: 70px;
-  }
+  @include imageBase(50px, 70px, 70px, 70px);
 }
 
 .user-to-add__name {
   flex-grow: 1;
   max-width: 45%;
   font-weight: bold;
-  // padding-left: 20px;
   color: white;
   overflow-wrap: break-word;
 
@@ -49,7 +41,7 @@
 .user-to-add__add-friend-icon {
   padding-right: 5px;
   font-size: 30px;
-  color: rgba(30, 143, 255, 0.7);
+  color: $blueWithOpacity;
   transition: 0.2s;
 
   @media (min-width: 768px) {
@@ -63,17 +55,17 @@
 
 @media (min-width: 1024px) {
   .user-to-add__add-friend-icon:hover {
-    text-shadow: 0 0 10px dodgerblue;
+    text-shadow: 0 0 10px $basicBlueColor;
   }
 }
 
 .user-to-add__add-friend-icon--added {
-  color: yellowgreen;
+  color: $basicGreenColor;
 }
 
 @media (min-width: 1024px) {
   .user-to-add__add-friend-icon--added:hover {
-    text-shadow: 0 0 0 yellowgreen;
+    text-shadow: 0 0 0 $basicGreenColor;
     cursor: auto;
   }
 }

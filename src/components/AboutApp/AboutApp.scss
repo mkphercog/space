@@ -1,18 +1,11 @@
+@import "./../../styles/mixins.scss";
+
 .about-app {
+  @include animationSubpage;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  animation: showAnimation 1.3s linear both;
-
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 }
 
 .about-app__title {
@@ -47,31 +40,14 @@
 }
 
 .about-app__registration-link {
-  padding: 5px 15px;
-  margin: 20px auto;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  background-color: rgba(30, 143, 255, 0.8);
-  box-shadow: 0 0 2px 1px dodgerblue;
-  text-decoration: none;
-
-  @media (min-width: 768px) {
-    font-size: 22px;
-  }
-
-  @media (min-width: 1024px) {
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  @include buttonBase;
+  margin: 20px 0;
+  @include buttonMedia768px;
+  @include buttonMedia1024px;
 }
 
 @media (min-width: 1024px) {
   .about-app__registration-link:hover {
-    background-color: yellowgreen;
-    box-shadow: 0 0 10px 1px yellowgreen;
+    @include buttonHover;
   }
 }

@@ -1,15 +1,9 @@
-.login-desk {
-  width: 100%;
-  animation: showAnimation 1.3s linear both;
+@import "./../../styles/mixins.scss";
+@import "./../../styles/variables.scss";
 
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.login-desk {
+  @include animationSubpage;
+  width: 100%;
 }
 
 .login-desk__wrapper {
@@ -35,59 +29,14 @@
 }
 
 .login-desk__btn {
-  padding: 5px 15px;
-  margin-top: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  background-color: rgba(30, 143, 255, 0.8);
-  box-shadow: 0 0 2px 1px dodgerblue;
-
-  @media (min-width: 768px) {
-    font-size: 22px;
-  }
-
-  @media (min-width: 1024px) {
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  @include buttonBase;
+  @include buttonMedia768px;
+  @include buttonMedia1024px;
 }
 
 @media (min-width: 1024px) {
   .login-desk__btn:hover {
-    background-color: yellowgreen;
-    box-shadow: 0 0 10px 1px yellowgreen;
-  }
-}
-
-.login-desk__login-error {
-  margin-top: 40px;
-  text-align: center;
-  color: rgb(190, 8, 8);
-  font-weight: bold;
-  text-shadow: 0 0 4px darkred;
-  animation: loginErrorAnimaion 1.5s linear both;
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-  }
-
-  @keyframes loginErrorAnimaion {
-    0% {
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+    @include buttonHover;
   }
 }
 
@@ -112,7 +61,7 @@
 
 @media (min-width: 1024px) {
   .login-desk__registration-link:hover {
-    color: yellowgreen;
+    color: $basicGreenColor;
     cursor: pointer;
   }
 }

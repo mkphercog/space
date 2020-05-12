@@ -1,0 +1,134 @@
+@import "./variables.scss";
+
+// BUTTON STYLES -----
+/* copy this and change button-classes
+.button-class {
+  @include buttonBase;
+  @include buttonMedia768px;
+  @include buttonMedia1024px;
+}
+
+@media (min-width: 1024px) {
+  .button-class:hover {
+    @include buttonHover;
+  }
+}
+*/
+@mixin buttonBase($marginTop: 10px) {
+  margin-top: $marginTop;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  text-decoration: none;
+  background-color: $blueWithOpacity;
+  box-shadow: 0 0 2px 1px $basicBlueColor;
+}
+
+@mixin buttonMedia768px {
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+@mixin buttonMedia1024px {
+  @media (min-width: 1024px) {
+    transition: 0.3s;
+    cursor: pointer;
+  }
+}
+
+@mixin buttonHover {
+  background-color: $basicGreenColor;
+  box-shadow: 0 0 10px 1px $basicGreenColor;
+}
+
+// ------
+
+// INPUT STYLES
+/* copy this and change baseClass
+.baseClass__label {
+  @include labelBase;
+}
+
+.baseClass__input {
+  @include inputBase;
+}
+
+.baseClass__input--security {
+  @include inputSecurity;
+}
+*/
+@mixin labelBase {
+  align-self: flex-start;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+@mixin inputBase {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 3px 1px rgb(148, 169, 190);
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+@mixin inputSecurity {
+  -webkit-text-security: disc;
+}
+
+// --------
+
+@mixin animationSubpage {
+  animation: showAnimation 1.3s linear both;
+
+  @keyframes showAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin imageBase($baseSize, $sizeFor411, $sizeFor768, $sizeFor1024) {
+  width: $baseSize;
+  height: $baseSize;
+  border-radius: 50%;
+  background-size: cover;
+
+  @media (min-width: 411px) {
+    width: $sizeFor411;
+    height: $sizeFor411;
+  }
+
+  @media (min-width: 768px) {
+    width: $sizeFor768;
+    height: $sizeFor768;
+  }
+
+  @media (min-width: 1024px) {
+    width: $sizeFor1024;
+    height: $sizeFor1024;
+  }
+}
+
+@mixin containerShadow {
+  border-radius: 20px;
+  box-shadow: 0 0 4px 2px black;
+  background-color: rgba(45, 45, 45, 0.2);
+}

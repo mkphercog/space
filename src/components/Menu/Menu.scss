@@ -1,3 +1,5 @@
+@import "./../../styles/variables.scss";
+
 .menu {
   position: fixed;
   height: 100vh;
@@ -108,23 +110,23 @@
 }
 
 .active {
-  color: dodgerblue;
+  color: $basicBlueColor;
   animation: fontAnimation 1.2s linear infinite;
 
   @keyframes fontAnimation {
     from {
-      text-shadow: 0 0 10px dodgerblue;
+      text-shadow: 0 0 10px $basicBlueColor;
     }
     to {
-      text-shadow: 0 0 0 dodgerblue;
+      text-shadow: 0 0 0 $basicBlueColor;
     }
   }
 }
 
 @media (min-width: 1024px) {
   .menu__link:hover {
-    color: greenyellow;
-    text-shadow: 0 0 5px greenyellow;
+    color: $basicGreenColor;
+    text-shadow: 0 0 5px $basicGreenColor;
     animation: none;
   }
 }

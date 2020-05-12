@@ -1,3 +1,5 @@
+@import "./../../../styles/mixins.scss";
+
 .add-new-message {
   display: flex;
   justify-content: center;
@@ -11,22 +13,16 @@
 }
 
 .add-new-message__logged-user-img {
+  @include imageBase(35px, 55px, 55px, 55px);
   flex-shrink: 0;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-size: cover;
   margin-right: 10px;
-
-  @media (min-width: 768px) {
-    width: 55px;
-    height: 55px;
-  }
 }
 
 .add-new-message__form {
   position: relative;
 }
+
+@import "./../../../styles/mixins.scss";
 
 .add-new-message__input {
   padding: 7px 35px 5px 8px;
@@ -65,7 +61,7 @@
 
 @media (min-width: 1024px) {
   .add-new-message__send-icon:hover {
-    color: dodgerblue;
+    color: $basicBlueColor;
     cursor: pointer;
   }
 }

@@ -1,3 +1,5 @@
+@import "./../../../styles/mixins.scss";
+
 .no-logged {
   display: flex;
   flex-direction: column;
@@ -14,31 +16,13 @@
 }
 
 .no-logged__btn {
-  padding: 5px 15px;
-  margin-top: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  background-color: rgba(30, 143, 255, 0.8);
-  box-shadow: 0 0 2px 1px dodgerblue;
-  text-decoration: none;
-
-  @media (min-width: 768px) {
-    font-size: 22px;
-  }
-
-  @media (min-width: 1024px) {
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  @include buttonBase(20px);
+  @include buttonMedia768px;
+  @include buttonMedia1024px;
 }
 
 @media (min-width: 1024px) {
   .no-logged__btn:hover {
-    background-color: yellowgreen;
-    box-shadow: 0 0 10px 1px yellowgreen;
+    @include buttonHover;
   }
 }

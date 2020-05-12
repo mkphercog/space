@@ -1,15 +1,8 @@
-.registration {
-  width: 100%;
-  animation: showAnimation 1.3s linear both;
+@import "./../../styles/mixins.scss";
 
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.registration {
+  @include animationSubpage;
+  width: 100%;
 }
 
 .registration__form-wrapper {
@@ -35,31 +28,14 @@
 }
 
 .registration__btn {
-  padding: 5px 15px;
-  margin-top: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  background-color: rgba(30, 143, 255, 0.8);
-  box-shadow: 0 0 2px 1px dodgerblue;
-
-  @media (min-width: 768px) {
-    font-size: 22px;
-  }
-
-  @media (min-width: 1024px) {
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  @include buttonBase;
+  @include buttonMedia768px;
+  @include buttonMedia1024px;
 }
 
 @media (min-width: 1024px) {
   .registration__btn:hover {
-    background-color: yellowgreen;
-    box-shadow: 0 0 10px 1px yellowgreen;
+    @include buttonHover;
   }
 }
 
@@ -84,16 +60,16 @@
       color: white;
     }
     20% {
-      color: dodgerblue;
+      color: $basicBlueColor;
     }
     40% {
-      color: yellowgreen;
+      color: $basicGreenColor;
     }
     60% {
-      color: yellowgreen;
+      color: $basicGreenColor;
     }
     80% {
-      color: dodgerblue;
+      color: $basicBlueColor;
     }
     100% {
       color: white;

@@ -1,13 +1,6 @@
-.all-users-list {
-  width: 100%;
-  animation: showAnimation 1.3s linear both;
+@import "./../../styles/mixins.scss";
 
-  @keyframes showAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.all-users-list {
+  @include animationSubpage;
+  width: 100%;
 }

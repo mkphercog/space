@@ -1,3 +1,5 @@
+@import "./../../styles/variables.scss";
+
 .notification-bar {
   position: fixed;
   bottom: 50px;
@@ -22,8 +24,8 @@
 }
 
 .notification-bar--green {
-  background-color: yellowgreen;
-  box-shadow: 0 0 5px 2px yellowgreen;
+  background-color: $basicGreenColor;
+  box-shadow: 0 0 5px 2px $basicGreenColor;
 }
 
 .notification-bar--red {

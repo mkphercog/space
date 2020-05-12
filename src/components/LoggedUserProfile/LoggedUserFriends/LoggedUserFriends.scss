@@ -1,3 +1,5 @@
+@import "./../../../styles/mixins.scss";
+
 .logged-user-friends {
   display: flex;
   width: 100%;
@@ -20,15 +22,13 @@
 }
 
 .logged-user-friends__friend-wrapper {
+  @include containerShadow;
   display: flex;
   justify-content: flex-start;
   width: 100%;
   margin: 10px 0;
   padding: 10px;
   overflow: auto;
-  background-color: rgba(45, 45, 45, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 0 4px 2px black;
 
   @media (min-width: 1024px) {
     flex-wrap: wrap;
@@ -39,20 +39,15 @@
 }
 
 .logged-user-friends__friend-img {
+  @include imageBase(70px, 70px, 120px, 120px);
   flex-shrink: 0;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 70px;
-  height: 70px;
   margin: 0 0 0 30px;
-  border-radius: 50%;
-  background-size: cover;
 
   @media (min-width: 768px) {
-    width: 120px;
-    height: 120px;
     margin: 0 0 0 40px;
   }
 
