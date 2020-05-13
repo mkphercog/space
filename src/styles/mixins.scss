@@ -90,6 +90,11 @@
   -webkit-text-security: disc;
 }
 
+@mixin inputError {
+  box-shadow: 0 0 5px 3px rgb(226, 39, 39);
+  transition: 0.3s;
+}
+
 // --------
 
 @mixin animationSubpage {
@@ -142,7 +147,7 @@
   font-size: 12px;
   font-weight: bold;
   color: white;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgba(141, 16, 16, 0.7);
   box-shadow: 0 0 5px 2px rgba(141, 16, 16, 0.7);
 

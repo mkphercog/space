@@ -14,6 +14,8 @@ export const Registration: React.FC<RegistrationProps> = ({
   const [loginValue, setLoginValue] = useState("");
   const [nameValue, setNameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const [registrationError, setRegistationError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("No message");
   const dispatch = useDispatch();
 
   const handleSubmitRegistration = (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,10 +48,12 @@ export const Registration: React.FC<RegistrationProps> = ({
         dispatch(setUserDetails(newUser));
         dispatch(setLoginUser(true));
       } else {
-        dispatch(setNotificationBar(registrationResult as string, "red", true));
+        setRegistationError(true);
+        setErrorMessage(registrationResult as string);
       }
     } else {
-      dispatch(setNotificationBar("Login jest już zajęty!", "red", true));
+      setRegistationError(true);
+      setErrorMessage("Login jest już zajęty!");
     }
   };
 
@@ -63,19 +67,25 @@ export const Registration: React.FC<RegistrationProps> = ({
           labelName="Login"
           inputValue={loginValue}
           setInputValue={setLoginValue}
+          classError={registrationError}
+          setLoginError={setRegistationError}
         />
 
         <RegistrationInputs
           labelName="Wyświetlana nazwa"
           inputValue={nameValue}
           setInputValue={setNameValue}
+          classError={registrationError}
+          setLoginError={setRegistationError}
         />
 
         <RegistrationInputs
           labelName="Hasło*"
           inputValue={passwordValue}
           setInputValue={setPasswordValue}
-          classModifier="registration__input--security"
+          security={true}
+          classError={registrationError}
+          setLoginError={setRegistationError}
         />
         <p className="registration__info-password">
           *Hasło: minimum 5 znaków i przynajmniej jedna cyfra.
@@ -83,6 +93,15 @@ export const Registration: React.FC<RegistrationProps> = ({
 
         <button className="registration__btn">Zarejestruj się</button>
       </form>
+      <p
+        className={`registration__error-message ${
+          registrationError
+            ? "registration__error-message--show"
+            : "registration__error-message--hide"
+        }`}
+      >
+        {errorMessage}
+      </p>
       <p className="registration__info registration__info--animation">
         Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
         zmiany zostaną utracone!

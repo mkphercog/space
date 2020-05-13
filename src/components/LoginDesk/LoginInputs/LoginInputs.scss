@@ -13,6 +13,5 @@
 }
 
 .login-desk__input--error {
-  box-shadow: 0 0 5px 3px rgb(226, 39, 39);
-  transition: 0.3s;
+  @include inputError;
 }

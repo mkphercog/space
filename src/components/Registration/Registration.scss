@@ -40,7 +40,6 @@
 }
 
 .registration__info {
-  padding-top: 20px;
   text-align: center;
   color: white;
   font-size: 14px;
@@ -85,4 +84,16 @@
   @media (min-width: 768px) {
     font-size: 14px;
   }
+}
+
+.registration__error-message {
+  @include errorMessageBase;
+}
+
+.registration__error-message--show {
+  @include errorMessageShow;
+}
+
+.registration__error-message--hide {
+  @include errorMessageHide;
 }
