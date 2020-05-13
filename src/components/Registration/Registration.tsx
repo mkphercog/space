@@ -67,7 +67,7 @@ export const Registration: React.FC<RegistrationProps> = ({
           labelName="Login"
           inputValue={loginValue}
           setInputValue={setLoginValue}
-          classError={registrationError}
+          registrationError={registrationError}
           setLoginError={setRegistationError}
         />
 
@@ -75,7 +75,7 @@ export const Registration: React.FC<RegistrationProps> = ({
           labelName="Wyświetlana nazwa"
           inputValue={nameValue}
           setInputValue={setNameValue}
-          classError={registrationError}
+          registrationError={registrationError}
           setLoginError={setRegistationError}
         />
 
@@ -84,7 +84,7 @@ export const Registration: React.FC<RegistrationProps> = ({
           inputValue={passwordValue}
           setInputValue={setPasswordValue}
           security={true}
-          classError={registrationError}
+          registrationError={registrationError}
           setLoginError={setRegistationError}
         />
         <p className="registration__info-password">

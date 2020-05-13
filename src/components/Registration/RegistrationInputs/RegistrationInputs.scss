@@ -11,7 +11,3 @@
 .registration__input--security {
   @include inputSecurity;
 }
-
-.registration__input--error {
-  @include inputError;
-}

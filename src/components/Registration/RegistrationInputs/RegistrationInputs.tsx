@@ -6,19 +6,18 @@ export const RegistrationInputs: React.FC<RegistrationInputsProps> = ({
   inputValue,
   setInputValue,
   security = false,
-  classError = false,
+  registrationError = false,
   setLoginError,
 }) => (
   <>
     <label className="registration__label">{labelName}</label>
     <input
       className={`registration__input       
-      ${security && "registration__input--security"} 
-      ${classError && "registration__input--error"}`}
+      ${security && "registration__input--security"}`}
       type="text"
       value={inputValue}
       onChange={(e) => {
-        if (classError) setLoginError(false);
+        if (registrationError) setLoginError(false);
         setInputValue(e.target.value);
       }}
     />
@@ -31,6 +30,6 @@ interface RegistrationInputsProps {
   setInputValue: Function;
   classModifier?: string;
   security?: boolean;
-  classError?: boolean;
+  registrationError?: boolean;
   setLoginError: Function;
 }
