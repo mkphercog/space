@@ -5,15 +5,22 @@ export const LoginInputs: React.FC<LoginInputsProps> = ({
   labelName,
   inputValue,
   setInputValue,
-  classModifier = "",
+  security = false,
+  classError = false,
+  setLoginError,
 }) => (
   <>
     <label className="login-desk__label">{labelName}</label>
     <input
-      className={`login-desk__input ${classModifier}`}
+      className={`login-desk__input 
+      ${security && "login-desk__input--security"} 
+      ${classError && "login-desk__input--error"}`}
       type="text"
       value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
+      onChange={(e) => {
+        if (classError) setLoginError(false);
+        setInputValue(e.target.value);
+      }}
     />
   </>
 );
@@ -22,5 +29,7 @@ interface LoginInputsProps {
   labelName: string;
   inputValue: string;
   setInputValue: Function;
-  classModifier?: string;
+  security?: boolean;
+  classError?: boolean;
+  setLoginError: Function;
 }

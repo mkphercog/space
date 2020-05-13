@@ -28,6 +28,18 @@
   }
 }
 
+.login-desk__error-message {
+  @include errorMessageBase;
+}
+
+.login-desk__error-message--show {
+  @include errorMessageShow;
+}
+
+.login-desk__error-message--hide {
+  @include errorMessageHide;
+}
+
 .login-desk__btn {
   @include buttonBase;
   @include buttonMedia768px;
@@ -43,7 +55,7 @@
 .login-desk__registration-link {
   display: block;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 12px;
   text-align: center;
   text-decoration: none;
