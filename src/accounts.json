@@ -15,7 +15,7 @@
       "password": "heniu123",
       "isLogged": false,
       "name": "Heniu",
-      "img": "https://media.giphy.com/media/dt54M1Cz0XkWtGJ13m/source.gif",
+      "img": "https://cdn.pixabay.com/photo/2019/06/07/17/04/planet-4258638_960_720.png",
       "friends": [0]
     },
     {
@@ -78,7 +78,7 @@
       "password": "robert123",
       "isLogged": false,
       "name": "Robert",
-      "img": "https://media.giphy.com/media/xT8qBhrlNooHBYR9f2/source.gif",
+      "img": "https://cdn.pixabay.com/photo/2016/04/01/22/32/world-1301744_960_720.png",
       "friends": [0]
     }
   ]
