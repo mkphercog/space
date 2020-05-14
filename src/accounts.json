@@ -6,7 +6,7 @@
       "password": "admin",
       "isLogged": false,
       "name": "Administrator",
-      "img": "https://i.gifer.com/BH32.gif",
+      "img": "https://media.giphy.com/media/ctGFLebG1AqK4/source.gif",
       "friends": [1, 2, 3, 4, 5, 6, 7, 8]
     },
     {
@@ -15,7 +15,7 @@
       "password": "heniu123",
       "isLogged": false,
       "name": "Heniu",
-      "img": "https://bestanimations.com/Earth&Space/astronaut-animation.gif",
+      "img": "https://media.giphy.com/media/dt54M1Cz0XkWtGJ13m/source.gif",
       "friends": [0]
     },
     {
@@ -78,7 +78,7 @@
       "password": "robert123",
       "isLogged": false,
       "name": "Robert",
-      "img": "https://static.skillshare.com/uploads/project/d4b4dc41fb50df6ee36d027fccd42fe4/26c13ada",
+      "img": "https://media.giphy.com/media/xT8qBhrlNooHBYR9f2/source.gif",
       "friends": [0]
     }
   ]
