@@ -5,16 +5,15 @@ import { Logo } from "./components/Logo/Logo";
 import { SubpagesContent } from "./components/SubpagesContent/SubpagesContent";
 import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 import { Menu } from "./components/Menu/Menu";
-import { NotificationBar } from "./components/NotificationBar/NotificationBar";
 import { useSelector } from "react-redux";
+import { Notifications } from "./components/Notifications/Notifications";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
 export const App = () => {
-  const notificationBar = useSelector(
-    (state: Notification) => state.notificationBar
+  const notificationList = useSelector(
+    (state: Notification) => state.notificationBar.notificationList
   );
-  const { message, colorBar, animation } = notificationBar;
 
   return (
     <div className="app" style={spaceBgImage}>
@@ -22,19 +21,17 @@ export const App = () => {
       <Logo />
       <SubpagesContent />
       <Menu />
-      <NotificationBar
-        message={message}
-        colorBar={colorBar}
-        animation={animation}
-      />
+      <Notifications notificationList={notificationList} />
     </div>
   );
 };
 
 interface Notification {
   notificationBar: {
-    message: string;
-    colorBar: string;
-    animation: boolean;
+    notificationList: {
+      messageText: string;
+      colorBar: string;
+      animation: boolean;
+    }[];
   };
 }

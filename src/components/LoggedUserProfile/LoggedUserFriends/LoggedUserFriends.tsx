@@ -24,11 +24,7 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
         onClick={() => {
           dispatch(deleteUserFromFriends(friend?.id));
           dispatch(
-            setNotificationBar(
-              `Usunięto ${friend?.name} ze znajomych.`,
-              "red",
-              true
-            )
+            setNotificationBar(`Usunięto ${friend?.name} ze znajomych.`, "red")
           );
         }}
         className="fas fa-user-minus logged-user-friends__delete-friend"

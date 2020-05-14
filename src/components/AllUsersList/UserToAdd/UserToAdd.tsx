@@ -22,8 +22,7 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
           dispatch(
             setNotificationBar(
               `Dodano ${globalUser.name} do znajomych.`,
-              "green",
-              true
+              "green"
             )
           );
           dispatch(addUserToFriends(globalUser.id));

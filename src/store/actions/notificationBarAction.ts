@@ -1,12 +1,12 @@
-import { SET_NOTIFICATION_BAR } from "./../types";
+import { SET_NOTIFICATION_BAR, DELETE_NOTIFICATIONS } from "./../types";
 
-export const setNotificationBar = (
-  message: string,
-  colorBar: string,
-  animation: boolean
-) => ({
+export const setNotificationBar = (messageText: string, colorBar: string) => ({
   type: SET_NOTIFICATION_BAR,
-  message: message,
+  messageText: messageText,
   colorBar: colorBar,
-  animation: animation,
+});
+
+export const deleteNotifications = () => ({
+  type: DELETE_NOTIFICATIONS,
+  notificationList: [],
 });

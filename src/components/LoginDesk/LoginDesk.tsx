@@ -9,7 +9,10 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
   const [loginValue, setLoginValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [loginError, setLoginError] = useState(false);
+  const [loginLoad, setLoginLoad] = useState(false);
   const dispatch = useDispatch();
+
+  if (loginError && !loginLoad) setLoginLoad(true);
 
   const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,7 +54,9 @@ export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
         className={`login-desk__error-message ${
           loginError
             ? "login-desk__error-message--show"
-            : "login-desk__error-message--hide"
+            : loginLoad
+            ? "login-desk__error-message--hide"
+            : ""
         }`}
       >
         Błąd logowania, spróbuj ponownie.

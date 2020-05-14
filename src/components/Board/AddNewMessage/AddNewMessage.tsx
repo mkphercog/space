@@ -27,7 +27,7 @@ export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
       dispatch(addGlobalMessage(newMessage));
       setMessageValue("");
     } else {
-      dispatch(setNotificationBar("Wpisz wiadomość.", "red", true));
+      dispatch(setNotificationBar("Wpisz wiadomość.", "red"));
     }
   };
 

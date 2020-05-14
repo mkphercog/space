@@ -16,7 +16,10 @@ export const Registration: React.FC<RegistrationProps> = ({
   const [passwordValue, setPasswordValue] = useState("");
   const [registrationError, setRegistationError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("No message");
+  const [registrationLoad, setRegistrationLoad] = useState(false);
   const dispatch = useDispatch();
+
+  if (registrationError && !registrationLoad) setRegistrationLoad(true);
 
   const handleSubmitRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,8 +44,7 @@ export const Registration: React.FC<RegistrationProps> = ({
         dispatch(
           setNotificationBar(
             "Dziękujemy za rejestrację, miłego explorowania!",
-            "green",
-            true
+            "green"
           )
         );
         dispatch(setUserDetails(newUser));
@@ -97,7 +99,9 @@ export const Registration: React.FC<RegistrationProps> = ({
         className={`registration__error-message ${
           registrationError
             ? "registration__error-message--show"
-            : "registration__error-message--hide"
+            : registrationLoad
+            ? "registration__error-message--hide"
+            : ""
         }`}
       >
         {errorMessage}

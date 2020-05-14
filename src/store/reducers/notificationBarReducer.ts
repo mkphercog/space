@@ -1,9 +1,7 @@
-import { SET_NOTIFICATION_BAR } from "./../types";
+import { SET_NOTIFICATION_BAR, DELETE_NOTIFICATIONS } from "./../types";
 
 const INITIAL_STATE = {
-  message: "",
-  colorBar: "green",
-  animation: false,
+  notificationList: [],
 };
 
 export const notificationBarReducer = (
@@ -14,9 +12,18 @@ export const notificationBarReducer = (
     case SET_NOTIFICATION_BAR:
       return {
         ...state,
-        message: action.message,
-        colorBar: action.colorBar,
-        animation: action.animation,
+        notificationList: [
+          ...state.notificationList,
+          {
+            messageText: action.messageText,
+            colorBar: action.colorBar,
+            animation: action.animation,
+          },
+        ],
+      };
+    case DELETE_NOTIFICATIONS:
+      return {
+        notificationList: action.notificationList,
       };
     default:
       return state;
@@ -25,7 +32,8 @@ export const notificationBarReducer = (
 
 interface Action {
   type: string;
-  message: string;
+  messageText: string;
   colorBar: string;
   animation: boolean;
+  notificationList: [];
 }
