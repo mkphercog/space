@@ -38,7 +38,7 @@
   }
 }
 
-.user-to-add__add-friend-icon {
+.user-to-add__icon {
   padding-right: 5px;
   font-size: 30px;
   color: $blueWithOpacity;
@@ -53,19 +53,33 @@
   }
 }
 
+.user-to-add__icon--delete {
+  color: darkred;
+}
+
 @media (min-width: 1024px) {
-  .user-to-add__add-friend-icon:hover {
-    text-shadow: 0 0 10px $basicBlueColor;
+  .user-to-add__icon--delete:hover {
+    text-shadow: 0 0 10px darkred;
   }
 }
 
-.user-to-add__add-friend-icon--added {
+.user-to-add__icon--add {
   color: $basicGreenColor;
 }
 
 @media (min-width: 1024px) {
-  .user-to-add__add-friend-icon--added:hover {
-    text-shadow: 0 0 0 $basicGreenColor;
-    cursor: auto;
+  .user-to-add__icon--add:hover {
+    text-shadow: 0 0 10px $basicGreenColor;
   }
 }
+
+// .user-to-add__add-friend-icon--added {
+//   color: $basicGreenColor;
+// }
+
+// @media (min-width: 1024px) {
+//   .user-to-add__add-friend-icon--added:hover {
+//     text-shadow: 0 0 0 $basicGreenColor;
+//     cursor: auto;
+//   }
+// }

@@ -1,6 +1,9 @@
 import React from "react";
 import "./UserToAdd.scss";
-import { addUserToFriends } from "./../../../store/actions/userAction";
+import {
+  addUserToFriends,
+  deleteUserFromFriends,
+} from "./../../../store/actions/userAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
 
 export const UserToAdd: React.FC<UserToAddProps> = ({
@@ -15,7 +18,18 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
     ></div>
     <p className="user-to-add__name">{globalUser.name}</p>
     {isInLoggedUserList ? (
-      <i className="fas fa-check user-to-add__add-friend-icon user-to-add__add-friend-icon--added"></i>
+      <i
+        onClick={() => {
+          dispatch(deleteUserFromFriends(globalUser?.id));
+          dispatch(
+            setNotificationBar(
+              `Usunięto ${globalUser?.name} ze znajomych.`,
+              "red"
+            )
+          );
+        }}
+        className="fas fa-user-minus user-to-add__icon user-to-add__icon--delete"
+      ></i>
     ) : (
       <i
         onClick={() => {
@@ -27,7 +41,7 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
           );
           dispatch(addUserToFriends(globalUser.id));
         }}
-        className="fas fa-user-plus user-to-add__add-friend-icon"
+        className="fas fa-user-plus user-to-add__icon user-to-add__icon--add"
       ></i>
     )}
   </div>
