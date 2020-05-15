@@ -9,6 +9,7 @@ import { LoggedUserProfile } from "../LoggedUserProfile/LoggedUserProfile";
 import { AllUsersList } from "../AllUsersList/AllUsersList";
 import { Registration } from "../Registration/Registration";
 import { updateUsersList } from "./../../store/actions/usersAction";
+import { PathError } from "./../PathError/PathError";
 
 export const SubpagesContent: React.FC = () => {
   const loggedUser = useSelector((state: User) => state.loggedUser);
@@ -96,7 +97,7 @@ export const SubpagesContent: React.FC = () => {
           }
         />
 
-        <Route component={() => <div style={{ color: "white" }}>BŁĄD</div>} />
+        <Route component={PathError} />
       </Switch>
     </main>
   );
