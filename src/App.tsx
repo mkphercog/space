@@ -1,7 +1,7 @@
 import React from "react";
 import SpaceBG from "./images/space-bg2.jpg";
 import "./App.scss";
-import { Logo } from "./components/Logo/Logo";
+import { Header } from "./components/Header/Header";
 import { SubpagesContent } from "./components/SubpagesContent/SubpagesContent";
 import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 import { Menu } from "./components/Menu/Menu";
@@ -18,7 +18,7 @@ export const App = () => {
   return (
     <div className="app" style={spaceBgImage}>
       <MenuIcon />
-      <Logo />
+      <Header />
       <SubpagesContent />
       <Menu />
       <Notifications notificationList={notificationList} />
