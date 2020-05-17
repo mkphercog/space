@@ -6,7 +6,7 @@
       "password": "admin",
       "isLogged": false,
       "name": "Administrator",
-      "img": "https://media.giphy.com/media/ctGFLebG1AqK4/source.gif",
+      "img": "https://cdn.pixabay.com/photo/2019/04/06/06/44/astronaut-4106766_960_720.jpg",
       "friends": [1, 2, 3, 4, 5, 6, 7, 8]
     },
     {
