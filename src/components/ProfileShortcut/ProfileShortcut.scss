@@ -1,0 +1,32 @@
+@import "./../../styles/mixins.scss";
+
+.profile-shortcut {
+  @include containerShadow;
+  @include imageBase(0, 0, 0, 70px);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+
+  @media (min-width: 1024px) {
+    opacity: 1;
+  }
+}
+
+.profile-shortcut:hover {
+  box-shadow: 0 0 5px 1px white;
+}
+
+.profile-shortcut__name {
+  position: absolute;
+  padding: 2px 4px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  font-size: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+}

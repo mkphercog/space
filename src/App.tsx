@@ -7,6 +7,7 @@ import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 import { Menu } from "./components/Menu/Menu";
 import { useSelector } from "react-redux";
 import { Notifications } from "./components/Notifications/Notifications";
+import { ProfileShortcut } from "./components/ProfileShortcut/ProfileShortcut";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
@@ -14,6 +15,7 @@ export const App = () => {
   const notificationList = useSelector(
     (state: Notification) => state.notificationBar.notificationList
   );
+  const loggedUser = useSelector((state: LoggedUser) => state.loggedUser);
 
   return (
     <div className="app" style={spaceBgImage}>
@@ -21,7 +23,12 @@ export const App = () => {
       <Header />
       <SubpagesContent />
       <Menu />
-      <Notifications notificationList={notificationList} />
+      {loggedUser.isLogged ? (
+        <>
+          <Notifications notificationList={notificationList} />
+          <ProfileShortcut loggedUser={loggedUser} />
+        </>
+      ) : null}
     </div>
   );
 };
@@ -33,5 +40,13 @@ interface Notification {
       colorBar: string;
       animation: boolean;
     }[];
+  };
+}
+
+interface LoggedUser {
+  loggedUser: {
+    isLogged: boolean;
+    img: string;
+    name: string;
   };
 }
