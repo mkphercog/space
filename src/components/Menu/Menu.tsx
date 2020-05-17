@@ -91,6 +91,18 @@ export const Menu: React.FC = () => {
             Rejestracja
           </NavLink>
         )}
+
+        <p className="menu__author">
+          Projekt i realizacja{" "}
+          <a
+            className="menu__author--link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://mkphercog.github.io/mywebsite/"
+          >
+            Marcin Hercog
+          </a>
+        </p>
       </ul>
     </nav>
   );

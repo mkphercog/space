@@ -131,3 +131,18 @@
     animation: none;
   }
 }
+
+.menu__author {
+  position: absolute;
+  bottom: 10px;
+  font-size: 10px;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.menu__author--link {
+  color: dodgerblue;
+}
