@@ -1,14 +1,10 @@
 import React from "react";
 import "./LoggedUserFriends.scss";
-import { useDispatch } from "react-redux";
-import { deleteUserFromFriends } from "./../../../store/actions/userAction";
-import { setNotificationBar } from "../../../store/actions/notificationBarAction";
 
 export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
   loggedUser,
   allUsersList,
 }) => {
-  const dispatch = useDispatch();
   const getLoggedUserFriends = loggedUser.friends.map((friendID) =>
     allUsersList.find((user) => user.id === friendID)
   );
@@ -20,15 +16,6 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
       style={{ backgroundImage: `url(${friend?.img})` }}
     >
       <span className="logged-user-friends__friend-name">{friend?.name}</span>
-      <i
-        onClick={() => {
-          dispatch(deleteUserFromFriends(friend?.id));
-          dispatch(
-            setNotificationBar(`Usunięto ${friend?.name} ze znajomych.`, "red")
-          );
-        }}
-        className="fas fa-user-minus logged-user-friends__delete-friend"
-      ></i>
     </div>
   ));
 

@@ -1,23 +1,24 @@
 @import "./../../../styles/mixins.scss";
 
 .logged-user-friends {
+  align-self: flex-start;
   display: flex;
   width: 100%;
   flex-direction: column;
-  align-items: center;
-
-  @media (min-width: 1024px) {
-    width: 0;
-    flex-grow: 1;
-  }
 }
 
 .logged-user-friends__title {
-  margin: 20px 0;
+  margin: 20px 0 0 10px;
   color: white;
+  font-size: 15px;
 
   @media (min-width: 768px) {
-    font-size: 32px;
+    font-size: 18px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 80%;
+    margin: 20px auto 0;
   }
 }
 
@@ -25,21 +26,19 @@
   @include containerShadow;
   display: flex;
   justify-content: flex-start;
-  width: 100%;
   margin: 10px 0;
   padding: 10px;
   overflow: auto;
 
   @media (min-width: 1024px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    max-height: 40vh;
+    width: 80%;
+    margin: 10px auto;
   }
 }
 
 .logged-user-friends__friend-img {
-  @include imageBase(70px, 70px, 120px, 120px);
+  @include containerShadow;
+  @include imageBase(50px, 60px, 80px, 60px);
   flex-shrink: 0;
   position: relative;
   display: flex;
@@ -47,35 +46,39 @@
   align-items: flex-end;
   margin: 0 0 0 30px;
 
-  @media (min-width: 768px) {
-    margin: 0 0 0 40px;
-  }
-
   @media (min-width: 1024px) {
-    margin: 20px;
+    margin: 0 0 0 40px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logged-user-friends__friend-img:hover {
+    box-shadow: 0 0 5px 1px white;
   }
 }
 
 .logged-user-friends__last-img-margin-on-mobile {
   flex-shrink: 0;
   width: 40px;
-
-  @media (min-width: 1024px) {
-    width: 0;
-    height: 0;
-  }
 }
 
 .logged-user-friends__friend-name {
   padding: 3px 10px;
-  font-size: 13px;
+  font-size: 11px;
   color: white;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.7);
 
   @media (min-width: 768px) {
     padding: 5px 15px;
-    font-size: 18px;
+    font-size: 12px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 3px 5px;
+    font-size: 12px;
   }
 }
 
@@ -84,32 +87,5 @@
 
   @media (min-width: 1024px) {
     margin: none;
-  }
-}
-
-.logged-user-friends__delete-friend {
-  position: absolute;
-  top: 0;
-  right: -10px;
-  padding: 6px 4px;
-  font-size: 16px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: darkred;
-  transition: 0.2s;
-
-  @media (min-width: 768px) {
-    font-size: 24px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    cursor: pointer;
-  }
-}
-
-@media (min-width: 1024px) {
-  .logged-user-friends__delete-friend:hover {
-    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.7);
   }
 }

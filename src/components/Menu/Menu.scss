@@ -137,6 +137,7 @@
   bottom: 10px;
   font-size: 10px;
   color: white;
+  transition: 0.3s;
 
   @media (min-width: 768px) {
     font-size: 12px;
@@ -145,4 +146,10 @@
 
 .menu__author--link {
   color: dodgerblue;
+}
+
+@media (min-width: 1024px) {
+  .menu__author--link:hover {
+    color: yellowgreen;
+  }
 }

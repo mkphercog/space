@@ -8,13 +8,13 @@ export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
 }) => (
   <section className="logged-user-profile">
     <div className="logged-user-profile__wrapper-name-img">
-      <h1 className="logged-user-profile__name">{loggedUser.name}</h1>
       <div
         className="logged-user-profile__img"
         style={{
           backgroundImage: `url(${loggedUser.img})`,
         }}
       ></div>
+      <h1 className="logged-user-profile__name">{loggedUser.name}</h1>
     </div>
     <LoggedUserFriends loggedUser={loggedUser} allUsersList={allUsersList} />
   </section>
