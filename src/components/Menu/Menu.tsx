@@ -8,6 +8,7 @@ import {
   setLoginUser,
   resetUserDetails,
 } from "./../../store/actions/userAction";
+import { deleteNotifications } from "./../../store/actions/notificationBarAction";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
@@ -68,6 +69,7 @@ export const Menu: React.FC = () => {
               dispatch(hideMenu());
               dispatch(setLoginUser(false));
               dispatch(resetUserDetails());
+              dispatch(deleteNotifications());
             }}
           >
             Wyloguj

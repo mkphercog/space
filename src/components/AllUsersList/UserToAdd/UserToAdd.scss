@@ -21,6 +21,10 @@
 
 .user-to-add__image {
   @include imageBase(50px, 70px, 70px, 70px);
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
+  }
 }
 
 .user-to-add__name {

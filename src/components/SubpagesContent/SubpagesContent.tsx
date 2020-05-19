@@ -10,6 +10,7 @@ import { AllUsersList } from "../AllUsersList/AllUsersList";
 import { Registration } from "../Registration/Registration";
 import { updateUsersList } from "./../../store/actions/usersAction";
 import { PathError } from "./../PathError/PathError";
+import { GlobalUserProfile } from "../GlobalUserProfile/GlobalUserProfile";
 
 export const SubpagesContent: React.FC = () => {
   const loggedUser = useSelector((state: User) => state.loggedUser);
@@ -59,12 +60,28 @@ export const SubpagesContent: React.FC = () => {
         />
 
         <Route
+          exact
           path="/users"
           render={() =>
             loggedUser.isLogged ? (
               <AllUsersList
                 loggedUser={loggedUser}
                 allUsersList={allUsers.list}
+              />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/users/:id"
+          render={(props) =>
+            loggedUser.isLogged ? (
+              <GlobalUserProfile
+                params={props.match.params}
+                allUsersList={allUsers.list}
+                loggedUser={loggedUser}
               />
             ) : (
               <Redirect to="/login" />
@@ -123,6 +140,11 @@ interface Users {
       name: string;
       img: string;
       friends: [];
+      details: {
+        birthYear: number;
+        homeTown: string;
+        sex: string;
+      };
     }[];
     lastUserID: number;
   };

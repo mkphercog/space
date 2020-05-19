@@ -33,6 +33,11 @@ interface Action {
     name: string;
     img: string;
     friends: number[];
+    details: {
+      birthYear: number;
+      homeTown: string;
+      sex: string;
+    };
   };
   list: {
     id: number;
@@ -42,5 +47,10 @@ interface Action {
     name: string;
     img: string;
     friends: number[];
+    details: {
+      birthYear: number;
+      homeTown: string;
+      sex: string;
+    };
   }[];
 }

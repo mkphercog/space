@@ -98,7 +98,7 @@
 // --------
 
 @mixin animationSubpage {
-  animation: showAnimation 1.3s linear both;
+  animation: showAnimation 0.7s linear both;
 
   @keyframes showAnimation {
     from {

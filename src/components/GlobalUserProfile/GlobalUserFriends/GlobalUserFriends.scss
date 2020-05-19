@@ -1,13 +1,13 @@
 @import "./../../../styles/mixins.scss";
 
-.logged-user-friends {
+.global-user-friends {
   align-self: flex-start;
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
-.logged-user-friends__title {
+.global-user-friends__title {
   margin: 20px 0 0 10px;
   color: white;
   font-size: 15px;
@@ -17,7 +17,7 @@
   }
 }
 
-.logged-user-friends__friend-wrapper {
+.global-user-friends__friend-wrapper {
   @include containerShadow;
   display: flex;
   justify-content: flex-start;
@@ -27,7 +27,7 @@
   overflow: auto;
 }
 
-.logged-user-friends__friend-img {
+.global-user-friends__friend-img {
   @include containerShadow;
   @include imageBase(50px, 60px, 80px, 60px);
   flex-shrink: 0;
@@ -45,18 +45,18 @@
 }
 
 @media (min-width: 1024px) {
-  .logged-user-friends__friend-img:hover {
+  .global-user-friends__friend-img:hover {
     box-shadow: 0 0 5px 1px white;
   }
 }
 
-.logged-user-friends__last-img-margin {
+.global-user-friends__last-img-margin {
   flex-shrink: 0;
   width: 40px;
   opacity: 0;
 }
 
-.logged-user-friends__friend-name {
+.global-user-friends__friend-name {
   padding: 3px 10px;
   font-size: 11px;
   color: white;
@@ -67,14 +67,9 @@
     padding: 5px 15px;
     font-size: 12px;
   }
-
-  @media (min-width: 768px) {
-    padding: 3px 5px;
-    font-size: 12px;
-  }
 }
 
-.logged-user-friends__friend-name--no-friend {
+.global-user-friends__friend-name--no-friend {
   margin: 0 auto;
 
   @media (min-width: 1024px) {
