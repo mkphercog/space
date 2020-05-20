@@ -1,35 +1,13 @@
 @import "./../../../styles/mixins.scss";
 
-.global-user-profile__back-icon {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  font-size: 35px;
-  color: white;
-
-  @media (min-width: 768px) {
-    font-size: 45px;
-  }
-
-  @media (min-width: 1024px) {
-    transition: 0.3s;
-    cursor: pointer;
-  }
-}
-
-@media (min-width: 1024px) {
-  .global-user-profile__back-icon:hover {
-    color: yellowgreen;
-  }
-}
-
 .global-user-profile__wrapper-name-img {
-  @include containerShadow;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .global-user-profile__img {

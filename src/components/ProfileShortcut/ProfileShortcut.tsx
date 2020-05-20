@@ -10,7 +10,7 @@ export const ProfileShortcut: React.FC<ProfileShortcutProps> = ({
     <div
       className="profile-shortcut"
       style={{ backgroundImage: `url(${loggedUser.img})` }}
-      onClick={() => history.push("/profile")}
+      onClick={() => history.push("/profile/info")}
     >
       <p className="profile-shortcut__name">{loggedUser.name}</p>
     </div>

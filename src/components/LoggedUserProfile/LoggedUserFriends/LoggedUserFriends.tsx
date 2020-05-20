@@ -16,7 +16,7 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
       key={friend?.id}
       className="logged-user-friends__friend-img"
       style={{ backgroundImage: `url(${friend?.img})` }}
-      onClick={() => history.push(`/users/${friend?.id}`)}
+      onClick={() => history.push(`/users/${friend?.id}/info`)}
     >
       <span className="logged-user-friends__friend-name">{friend?.name}</span>
     </div>
@@ -24,13 +24,9 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
 
   return (
     <div className="logged-user-friends">
-      <h2 className="logged-user-friends__title">{`Znajomi (${renderFriends.length})`}</h2>
       <div className="logged-user-friends__friend-wrapper">
         {renderFriends.length ? (
-          <>
-            {renderFriends}
-            <div className="logged-user-friends__last-img-margin"></div>
-          </>
+          renderFriends
         ) : (
           <span className="logged-user-friends__friend-name logged-user-friends__friend-name--no-friend">
             Brak znajomych

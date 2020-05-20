@@ -36,7 +36,7 @@ export const Menu: React.FC = () => {
         {userIsLogged ? (
           <NavLink
             className="menu__link"
-            to="/profile"
+            to="/profile/info"
             onClick={() => dispatch(hideMenu())}
           >
             Profil

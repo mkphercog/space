@@ -7,7 +7,7 @@
       "isLogged": false,
       "name": "Administrator",
       "img": "https://cdn.pixabay.com/photo/2019/04/06/06/44/astronaut-4106766_960_720.jpg",
-      "friends": [1, 2, 3, 4, 5, 6, 7, 8],
+      "friends": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       "details": {
         "birthYear": 1993,
         "homeTown": "Katowice",
@@ -119,11 +119,39 @@
       "isLogged": false,
       "name": "Robert",
       "img": "https://cdn.pixabay.com/photo/2016/04/01/22/32/world-1301744_960_720.png",
-      "friends": [0, 5, 3],
+      "friends": [0, 5, 3, 9],
       "details": {
         "birthYear": 1979,
         "homeTown": "Wadowice",
         "sex": "mężczyzna"
+      }
+    },
+    {
+      "id": 9,
+      "login": "Krzysiek",
+      "password": "krzysiek123",
+      "isLogged": false,
+      "name": "Krzysiek",
+      "img": "https://cdn.pixabay.com/photo/2020/05/11/18/37/forest-5159688_960_720.jpg",
+      "friends": [0, 5, 3, 8],
+      "details": {
+        "birthYear": 1982,
+        "homeTown": "Cieszyn",
+        "sex": "mężczyzna"
+      }
+    },
+    {
+      "id": 10,
+      "login": "Ewelina",
+      "password": "ewelina123",
+      "isLogged": false,
+      "name": "Ewelina",
+      "img": "https://cdn.pixabay.com/photo/2020/05/16/02/20/moon-5175691_960_720.jpg",
+      "friends": [0],
+      "details": {
+        "birthYear": 1990,
+        "homeTown": "Rybnik",
+        "sex": "kobieta"
       }
     }
   ]

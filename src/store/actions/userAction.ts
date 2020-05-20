@@ -11,12 +11,15 @@ export const setLoginUser = (isLogged: boolean) => ({
   isLogged: isLogged,
 });
 
-export const setUserDetails = ({ id, name, img, friends }: User) => ({
+export const setUserDetails = ({ id, name, img, friends, details }: User) => ({
   type: SET_USER_DETAILS,
   id: id,
   name: name,
   img: img,
   friends: friends,
+  birthYear: details.birthYear,
+  homeTown: details.homeTown,
+  sex: details.sex,
 });
 
 export const resetUserDetails = () => ({
@@ -38,4 +41,9 @@ interface User {
   name: string;
   img: string;
   friends: number[];
+  details: {
+    birthYear: number;
+    homeTown: string;
+    sex: string;
+  };
 }

@@ -127,6 +127,11 @@ interface User {
     name: string;
     img: string;
     friends: [];
+    details: {
+      birthYear: number;
+      homeTown: string;
+      sex: string;
+    };
   };
 }
 

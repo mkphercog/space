@@ -12,6 +12,11 @@ const INITIAL_STATE = {
   name: "Nieznajomy",
   img: "",
   friends: [],
+  details: {
+    birthYear: 2000,
+    homeTown: "Warszawa",
+    sex: "mężczyzna",
+  },
 };
 
 export const userReducer = (state = INITIAL_STATE, action: Action) => {
@@ -28,6 +33,11 @@ export const userReducer = (state = INITIAL_STATE, action: Action) => {
         name: action.name,
         img: action.img,
         friends: action.friends,
+        details: {
+          birthYear: action.birthYear,
+          homeTown: action.homeTown,
+          sex: action.sex,
+        },
       };
     case RESET_USER_DETAILS:
       return {
@@ -61,4 +71,7 @@ interface Action {
   friends: number[];
   newFriendID: number;
   friendToDeleteID: number;
+  birthYear: number;
+  homeTown: string;
+  sex: string;
 }

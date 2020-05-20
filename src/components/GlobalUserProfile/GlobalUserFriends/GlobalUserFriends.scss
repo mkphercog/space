@@ -7,24 +7,14 @@
   flex-direction: column;
 }
 
-.global-user-friends__title {
-  margin: 20px 0 0 10px;
-  color: white;
-  font-size: 15px;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-}
-
 .global-user-friends__friend-wrapper {
   @include containerShadow;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  margin: 10px 0;
+  margin: 10px auto;
   padding: 10px;
-  overflow: auto;
 }
 
 .global-user-friends__friend-img {
@@ -35,10 +25,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin: 0 0 0 30px;
+  margin: 10px;
 
   @media (min-width: 1024px) {
-    margin: 0 0 0 40px;
+    margin: 10px 25px;
     transition: 0.3s;
     cursor: pointer;
   }

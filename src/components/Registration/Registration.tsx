@@ -39,6 +39,7 @@ export const Registration: React.FC<RegistrationProps> = ({
           name: nameValue,
           img: profileSketchs[sketchIndex],
           friends: [],
+          details: { birthYear: 2000, homeTown: "Warszawa", sex: "mężczyzna" },
         };
         dispatch(addNewRegistredUser(newUser));
         dispatch(

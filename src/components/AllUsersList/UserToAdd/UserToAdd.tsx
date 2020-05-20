@@ -18,7 +18,7 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
       <div
         className="user-to-add__image"
         style={{ backgroundImage: `url(${globalUser.img})` }}
-        onClick={() => history.push(`users/${globalUser.id}`)}
+        onClick={() => history.push(`users/${globalUser.id}/info`)}
       ></div>
       <p className="user-to-add__name">{globalUser.name}</p>
       {isInLoggedUserList ? (

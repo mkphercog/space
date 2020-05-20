@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./GlobalUserProfile.scss";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink, Switch, Route, Redirect } from "react-router-dom";
 import { GlobalUserFriends } from "./GlobalUserFriends/GlobalUserFriends";
 import { GlobalUserImgName } from "./GlobalUserImgName/GlobalUserImgName";
 export const GlobalUserProfile: React.FC<GlobalUserProfileProps> = ({
@@ -36,21 +36,53 @@ export const GlobalUserProfile: React.FC<GlobalUserProfileProps> = ({
       }`}
     >
       <GlobalUserImgName
-        history={history}
         globalUserDetails={globalUserDetails || { name: "", img: "" }}
       />
-      <GlobalUserFriends
-        history={history}
-        friendsList={globalUserDetails?.friends || []}
-        allUsersList={allUsersList}
-      />
-      <div className="global-user-profile__details-wrapper">
-        <h2 className="global-user-profile__details-title">Informacje</h2>
-        <p className="global-user-profile__details">{`Wiek: ${userAge}`}</p>
-        <p className="global-user-profile__details">{`Rok urodzenia: ${birthYear}r.`}</p>
-        <p className="global-user-profile__details">{`Miasto: ${homeTown}`}</p>
-        <p className="global-user-profile__details">{`Płeć: ${sex}`}</p>
-      </div>
+
+      <nav className="global-user-profile__local-nav">
+        <NavLink
+          className="global-user-profile__local-nav-link"
+          to={`/users/${globalUserDetails?.id}/info`}
+        >
+          Informacje
+        </NavLink>
+        <NavLink
+          className="global-user-profile__local-nav-link"
+          to={`/users/${globalUserDetails?.id}/friends`}
+        >
+          {`Znajomi(${globalUserDetails?.friends.length})`}
+        </NavLink>
+      </nav>
+
+      <Switch>
+        <Route
+          path={`/users/${globalUserDetails?.id}/info`}
+          render={() => (
+            <div className="global-user-profile__details-wrapper">
+              <p className="global-user-profile__details">{`Nazwa: ${globalUserDetails?.name}`}</p>
+              <p className="global-user-profile__details">{`Wiek: ${userAge}`}</p>
+              <p className="global-user-profile__details">{`Rok urodzenia: ${birthYear}r.`}</p>
+              <p className="global-user-profile__details">{`Miasto: ${homeTown}`}</p>
+              <p className="global-user-profile__details">{`Płeć: ${sex}`}</p>
+            </div>
+          )}
+        />
+        <Route
+          path={`/users/${globalUserDetails?.id}/friends`}
+          render={() => (
+            <GlobalUserFriends
+              history={history}
+              friendsList={globalUserDetails?.friends || []}
+              allUsersList={allUsersList}
+            />
+          )}
+        />
+        <Route
+          render={() => (
+            <Redirect to={`/users/${globalUserDetails?.id}/info`} />
+          )}
+        />
+      </Switch>
     </section>
   );
 };
