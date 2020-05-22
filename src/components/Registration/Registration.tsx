@@ -7,6 +7,7 @@ import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { profileSketchs, validation } from "./RegistrationLogic";
 import { setNotificationBar } from "./../../store/actions/notificationBarAction";
 import { NotificationColors } from "./../Notifications/NotificationBar/NotificationBar";
+import { Prompt } from "react-router-dom";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,
@@ -62,57 +63,63 @@ export const Registration: React.FC<RegistrationProps> = ({
   };
 
   return (
-    <section className="registration">
-      <form
-        className="registration__form-wrapper"
-        onSubmit={(e) => handleSubmitRegistration(e)}
-      >
-        <RegistrationInputs
-          labelName="Login"
-          inputValue={loginValue}
-          setInputValue={setLoginValue}
-          registrationError={registrationError}
-          setLoginError={setRegistationError}
-        />
+    <>
+      <Prompt
+        when={loginValue || nameValue || passwordValue ? true : false}
+        message={"Zmiany nie zostaną zapisane, mimo to przejść dalej?"}
+      />
+      <section className="registration">
+        <form
+          className="registration__form-wrapper"
+          onSubmit={(e) => handleSubmitRegistration(e)}
+        >
+          <RegistrationInputs
+            labelName="Login"
+            inputValue={loginValue}
+            setInputValue={setLoginValue}
+            registrationError={registrationError}
+            setLoginError={setRegistationError}
+          />
 
-        <RegistrationInputs
-          labelName="Wyświetlana nazwa"
-          inputValue={nameValue}
-          setInputValue={setNameValue}
-          registrationError={registrationError}
-          setLoginError={setRegistationError}
-        />
+          <RegistrationInputs
+            labelName="Wyświetlana nazwa"
+            inputValue={nameValue}
+            setInputValue={setNameValue}
+            registrationError={registrationError}
+            setLoginError={setRegistationError}
+          />
 
-        <RegistrationInputs
-          labelName="Hasło*"
-          inputValue={passwordValue}
-          setInputValue={setPasswordValue}
-          security={true}
-          registrationError={registrationError}
-          setLoginError={setRegistationError}
-        />
-        <p className="registration__info-password">
-          *Hasło: minimum 5 znaków i przynajmniej jedna cyfra.
+          <RegistrationInputs
+            labelName="Hasło*"
+            inputValue={passwordValue}
+            setInputValue={setPasswordValue}
+            security={true}
+            registrationError={registrationError}
+            setLoginError={setRegistationError}
+          />
+          <p className="registration__info-password">
+            *Hasło: minimum 5 znaków i przynajmniej jedna cyfra.
+          </p>
+
+          <button className="registration__btn">Zarejestruj się</button>
+        </form>
+        <p
+          className={`registration__error-message ${
+            registrationError
+              ? "registration__error-message--show"
+              : registrationLoad
+              ? "registration__error-message--hide"
+              : ""
+          }`}
+        >
+          {errorMessage}
         </p>
-
-        <button className="registration__btn">Zarejestruj się</button>
-      </form>
-      <p
-        className={`registration__error-message ${
-          registrationError
-            ? "registration__error-message--show"
-            : registrationLoad
-            ? "registration__error-message--hide"
-            : ""
-        }`}
-      >
-        {errorMessage}
-      </p>
-      <p className="registration__info registration__info--animation">
-        Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
-        zmiany zostaną utracone!
-      </p>
-    </section>
+        <p className="registration__info registration__info--animation">
+          Rejestracja działa tylko na daną sesję, po odświeżeniu strony wszelkie
+          zmiany zostaną utracone!
+        </p>
+      </section>
+    </>
   );
 };
 
