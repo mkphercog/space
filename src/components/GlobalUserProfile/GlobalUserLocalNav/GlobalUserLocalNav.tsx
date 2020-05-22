@@ -6,6 +6,7 @@ import {
   deleteUserFromFriends,
 } from "./../../../store/actions/userAction";
 import { setNotificationBar } from "./../../../store/actions/notificationBarAction";
+import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
 
 export const GlobalUserLocalNav: React.FC<GlobalUserLocalNavProps> = ({
   dispatch,
@@ -33,7 +34,7 @@ export const GlobalUserLocalNav: React.FC<GlobalUserLocalNavProps> = ({
             dispatch(
               setNotificationBar(
                 `Usunięto ${globalUserDetails?.name} ze znajomych.`,
-                "red"
+                NotificationColors.red
               )
             );
           }}
@@ -45,7 +46,7 @@ export const GlobalUserLocalNav: React.FC<GlobalUserLocalNavProps> = ({
             dispatch(
               setNotificationBar(
                 `Dodano ${globalUserDetails?.name} do znajomych.`,
-                "green"
+                NotificationColors.green
               )
             );
             dispatch(addUserToFriends(globalUserDetails?.id));

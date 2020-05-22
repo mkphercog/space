@@ -1,9 +1,14 @@
 import React from "react";
 import "./NotificationBar.scss";
 
+export enum NotificationColors {
+  green = "green",
+  red = "red",
+}
+
 export const NotificationBar: React.FC<NotificationBarProps> = ({
   messageText,
-  colorBar = "green",
+  colorBar = NotificationColors.green,
 }) => (
   <div
     className={`notification-bar notification-bar--${colorBar} notification-bar--animation`}
@@ -14,5 +19,5 @@ export const NotificationBar: React.FC<NotificationBarProps> = ({
 
 interface NotificationBarProps {
   messageText: string;
-  colorBar: string;
+  colorBar: NotificationColors;
 }

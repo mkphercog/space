@@ -6,6 +6,7 @@ import { addNewRegistredUser } from "./../../store/actions/usersAction";
 import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { profileSketchs, validation } from "./RegistrationLogic";
 import { setNotificationBar } from "./../../store/actions/notificationBarAction";
+import { NotificationColors } from "./../Notifications/NotificationBar/NotificationBar";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,
@@ -45,7 +46,7 @@ export const Registration: React.FC<RegistrationProps> = ({
         dispatch(
           setNotificationBar(
             "Dziękujemy za rejestrację, miłego explorowania!",
-            "green"
+            NotificationColors.green
           )
         );
         dispatch(setUserDetails(newUser));

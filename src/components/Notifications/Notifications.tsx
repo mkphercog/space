@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import "./Notifications.scss";
-import { NotificationBar } from "./NotificationBar/NotificationBar";
+import {
+  NotificationBar,
+  NotificationColors,
+} from "./NotificationBar/NotificationBar";
 import { useDispatch } from "react-redux";
 import { deleteNotifications } from "./../../store/actions/notificationBarAction";
 
@@ -34,7 +37,7 @@ export const Notifications: React.FC<NotificationsProps> = ({
 interface NotificationsProps {
   notificationList: {
     messageText: string;
-    colorBar: string;
+    colorBar: NotificationColors;
     animation: boolean;
   }[];
 }

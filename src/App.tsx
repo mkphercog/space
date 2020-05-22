@@ -7,6 +7,7 @@ import { MenuIcon } from "./components/MenuIcon/MenuIcon";
 import { Menu } from "./components/Menu/Menu";
 import { useSelector } from "react-redux";
 import { Notifications } from "./components/Notifications/Notifications";
+import { NotificationColors } from "./components/Notifications/NotificationBar/NotificationBar";
 import { ProfileShortcut } from "./components/ProfileShortcut/ProfileShortcut";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
@@ -37,7 +38,7 @@ interface Notification {
   notificationBar: {
     notificationList: {
       messageText: string;
-      colorBar: string;
+      colorBar: NotificationColors;
       animation: boolean;
     }[];
   };

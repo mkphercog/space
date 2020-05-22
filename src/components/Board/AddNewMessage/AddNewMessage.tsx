@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "./AddNewMessage.scss";
 import { addGlobalMessage } from "./../../../store/actions/messagesAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
+import { NotificationColors } from "./../../Notifications/NotificationBar/NotificationBar";
 
 export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
       dispatch(addGlobalMessage(newMessage));
       setMessageValue("");
     } else {
-      dispatch(setNotificationBar("Wpisz wiadomość.", "red"));
+      dispatch(setNotificationBar("Wpisz wiadomość.", NotificationColors.red));
     }
   };
 

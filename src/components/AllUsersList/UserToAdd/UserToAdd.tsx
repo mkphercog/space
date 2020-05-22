@@ -5,6 +5,7 @@ import {
   deleteUserFromFriends,
 } from "./../../../store/actions/userAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
+import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
 import { useHistory } from "react-router-dom";
 
 export const UserToAdd: React.FC<UserToAddProps> = ({
@@ -28,7 +29,7 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
             dispatch(
               setNotificationBar(
                 `Usunięto ${globalUser?.name} ze znajomych.`,
-                "red"
+                NotificationColors.red
               )
             );
           }}
@@ -40,7 +41,7 @@ export const UserToAdd: React.FC<UserToAddProps> = ({
             dispatch(
               setNotificationBar(
                 `Dodano ${globalUser.name} do znajomych.`,
-                "green"
+                NotificationColors.green
               )
             );
             dispatch(addUserToFriends(globalUser.id));
