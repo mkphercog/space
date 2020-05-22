@@ -1,24 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "./GlobalUserProfile.scss";
-import { useHistory, NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { useHistory, Switch, Route, Redirect } from "react-router-dom";
 import { GlobalUserFriends } from "./GlobalUserFriends/GlobalUserFriends";
 import { GlobalUserImgName } from "./GlobalUserImgName/GlobalUserImgName";
+import { GlobalUserLocalNav } from "./GlobalUserLocalNav/GlobalUserLocalNav";
+import { useDispatch } from "react-redux";
+
 export const GlobalUserProfile: React.FC<GlobalUserProfileProps> = ({
   params,
   allUsersList,
   loggedUser,
 }) => {
-  const history = useHistory();
   const [animation, setAnimation] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const globalUserDetails = allUsersList.find(
     (user) => user.id === Number(params.id)
   );
   const isUserIdGlobal = allUsersList.findIndex(
     (user) => user.id === Number(params.id)
   );
-  const currentYear = new Date().getFullYear();
   const { birthYear, homeTown, sex } = globalUserDetails?.details || {};
+  const currentYear = new Date().getFullYear();
   const userAge = currentYear - Number(birthYear);
+  const isInFriendLoggedUser =
+    loggedUser.friends.findIndex(
+      (friend) => friend === globalUserDetails?.id
+    ) === -1
+      ? false
+      : true;
 
   useEffect(() => {
     if (Number(params.id) === loggedUser.id) history.push("/profile");
@@ -38,34 +48,32 @@ export const GlobalUserProfile: React.FC<GlobalUserProfileProps> = ({
       <GlobalUserImgName
         globalUserDetails={globalUserDetails || { name: "", img: "" }}
       />
-
-      <nav className="global-user-profile__local-nav">
-        <NavLink
-          className="global-user-profile__local-nav-link"
-          to={`/users/${globalUserDetails?.id}/info`}
-        >
-          Informacje
-        </NavLink>
-        <NavLink
-          className="global-user-profile__local-nav-link"
-          to={`/users/${globalUserDetails?.id}/friends`}
-        >
-          {`Znajomi(${globalUserDetails?.friends.length})`}
-        </NavLink>
-      </nav>
+      <GlobalUserLocalNav
+        dispatch={dispatch}
+        globalUserDetails={
+          globalUserDetails || { id: -1, name: "", friends: [] }
+        }
+        isInFriendLoggedUser={isInFriendLoggedUser}
+      />
 
       <Switch>
         <Route
           path={`/users/${globalUserDetails?.id}/info`}
-          render={() => (
-            <div className="global-user-profile__details-wrapper">
-              <p className="global-user-profile__details">{`Nazwa: ${globalUserDetails?.name}`}</p>
-              <p className="global-user-profile__details">{`Wiek: ${userAge}`}</p>
-              <p className="global-user-profile__details">{`Rok urodzenia: ${birthYear}r.`}</p>
-              <p className="global-user-profile__details">{`Miasto: ${homeTown}`}</p>
-              <p className="global-user-profile__details">{`Płeć: ${sex}`}</p>
-            </div>
-          )}
+          render={() => {
+            return isInFriendLoggedUser ? (
+              <div className="global-user-profile__details-wrapper">
+                <p className="global-user-profile__details">{`Nazwa: ${globalUserDetails?.name}`}</p>
+                <p className="global-user-profile__details">{`Wiek: ${userAge}`}</p>
+                <p className="global-user-profile__details">{`Rok urodzenia: ${birthYear}r.`}</p>
+                <p className="global-user-profile__details">{`Miasto: ${homeTown}`}</p>
+                <p className="global-user-profile__details">{`Płeć: ${sex}`}</p>
+              </div>
+            ) : (
+              <span className="global-user-profile__details-no-friend">
+                {`Ta sekcja nie jest dostępna, ponieważ Ty i ${globalUserDetails?.name} nie jesteście znajomymi.`}
+              </span>
+            );
+          }}
         />
         <Route
           path={`/users/${globalUserDetails?.id}/friends`}

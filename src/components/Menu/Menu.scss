@@ -145,11 +145,11 @@
 }
 
 .menu__author--link {
-  color: dodgerblue;
+  color: $basicBlueColor;
 }
 
 @media (min-width: 1024px) {
   .menu__author--link:hover {
-    color: yellowgreen;
+    color: $basicGreenColor;
   }
 }

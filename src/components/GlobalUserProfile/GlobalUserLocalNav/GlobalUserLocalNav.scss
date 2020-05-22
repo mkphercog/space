@@ -1,0 +1,76 @@
+@import "./../../../styles/variables.scss";
+
+.global-user-local-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px 10px 10px;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.global-user-local-nav__link {
+  margin-right: 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+
+  @media (min-width: 768px) {
+    margin-right: 30px;
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .global-user-local-nav__link:hover {
+    color: $basicGreenColor;
+    text-shadow: 0 0 5px $basicGreenColor;
+    animation: none;
+  }
+}
+
+.global-user-local-nav__is-friend {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.global-user-local-nav__is-friend-icon {
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+
+@media (min-width: 1024px) {
+  .global-user-local-nav__is-friend-icon:hover {
+    transform: scale(1.2);
+  }
+}
+
+.global-user-local-nav__is-friend--delete {
+  color: darkred;
+  text-shadow: 0 0 3px white;
+}
+
+.global-user-local-nav__is-friend--add {
+  color: $basicGreenColor;
+  text-shadow: 0 0 3px $basicGreenColor;
+}

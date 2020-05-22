@@ -1,6 +1,6 @@
 @import "./../../../styles/mixins.scss";
 
-.global-user-profile__wrapper-name-img {
+.global-user-img-name {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +10,14 @@
   border-top-right-radius: 20px;
 }
 
-.global-user-profile__img {
+.global-user-img-name__img {
   @include imageBase(100px, 120px, 160px, 170px);
   margin-top: 10px;
   background-repeat: no-repeat;
   box-shadow: 0 0 5px 1px black;
 }
 
-.global-user-profile__name {
+.global-user-img-name__name {
   max-width: 100%;
   margin: 10px 0;
   color: white;
