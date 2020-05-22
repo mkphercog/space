@@ -43,7 +43,7 @@ interface MessagesProps {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
   }[];
 }
 

@@ -18,14 +18,34 @@ export const SubpagesContent: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const updatedUsersList = allUsers.list.map((user) => {
-      if (user.id === loggedUser.id) {
-        user.friends = loggedUser.friends;
-      }
-      return user;
-    });
+    if (loggedUser.id !== -1) {
+      let updatedUsersList = allUsers.list.map((user) => {
+        if (user.id === loggedUser.id) {
+          user.friends = loggedUser.friends;
+        }
+        return user;
+      });
 
-    dispatch(updateUsersList(updatedUsersList));
+      updatedUsersList = updatedUsersList.map((user) => {
+        if (
+          user.id === loggedUser.friends[loggedUser.friends.length - 1] &&
+          !user.friends.includes(loggedUser.id)
+        ) {
+          user.friends.push(loggedUser.id);
+        } else if (
+          user.friends.includes(loggedUser.id) &&
+          !loggedUser.friends.includes(user.id)
+        ) {
+          user.friends = user.friends.filter(
+            (friend) => friend !== loggedUser.id
+          );
+        }
+
+        return user;
+      });
+
+      dispatch(updateUsersList(updatedUsersList));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedUser.friends]);
 
@@ -126,7 +146,7 @@ interface User {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
     details: {
       birthYear: number;
       homeTown: string;
@@ -144,7 +164,7 @@ interface Users {
       isLogged: boolean;
       name: string;
       img: string;
-      friends: [];
+      friends: number[];
       details: {
         birthYear: number;
         homeTown: string;

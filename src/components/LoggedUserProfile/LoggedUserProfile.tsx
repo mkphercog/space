@@ -68,7 +68,7 @@ interface LoggedUserProfileProps {
   loggedUser: {
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
     details: {
       birthYear: number;
       homeTown: string;
@@ -80,6 +80,6 @@ interface LoggedUserProfileProps {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
   }[];
 }

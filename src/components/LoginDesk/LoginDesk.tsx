@@ -76,7 +76,7 @@ export interface LoginDeskProps {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
     details: {
       birthYear: number;
       homeTown: string;

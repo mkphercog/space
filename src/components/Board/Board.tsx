@@ -28,6 +28,6 @@ export interface BoardProps {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
   }[];
 }

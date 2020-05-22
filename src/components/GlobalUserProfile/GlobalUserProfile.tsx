@@ -116,6 +116,6 @@ interface GlobalUserProfileProps {
     isLogged: boolean;
     name: string;
     img: string;
-    friends: [];
+    friends: number[];
   };
 }

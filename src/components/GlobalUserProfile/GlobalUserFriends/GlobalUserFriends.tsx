@@ -6,8 +6,8 @@ export const GlobalUserFriends: React.FC<GlobalUserFriendsProps> = ({
   friendsList,
   allUsersList,
 }) => {
-  const getFriends = allUsersList.filter((friend) =>
-    friendsList.includes(friend.id)
+  const getFriends = friendsList.map((friendID) =>
+    allUsersList.find((user) => user.id === friendID)
   );
 
   const renderFriends = getFriends.map((friend) => (

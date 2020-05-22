@@ -39,7 +39,7 @@ export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
 
 interface LoggedUserFriendsProps {
   loggedUser: {
-    friends: [];
+    friends: number[];
   };
   allUsersList: {
     id: number;

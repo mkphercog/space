@@ -22,7 +22,7 @@ type Users = {
   isLogged: boolean;
   name: string;
   img: string;
-  friends: [];
+  friends: number[];
   details: {
     birthYear: number;
     homeTown: string;

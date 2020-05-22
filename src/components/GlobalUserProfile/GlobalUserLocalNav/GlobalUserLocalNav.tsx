@@ -63,7 +63,7 @@ interface GlobalUserLocalNavProps {
   globalUserDetails: {
     id: number;
     name: string;
-    friends: Number[];
+    friends: number[];
   };
   isInFriendLoggedUser: boolean;
 }
