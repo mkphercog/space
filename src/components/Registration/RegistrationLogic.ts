@@ -23,7 +23,8 @@ export const profileSketchs = [
 export const validation = (
   login: string,
   name: string,
-  password: string
+  password: string,
+  homeTown: string
 ): boolean | string => {
   const isNumberRegExp = new RegExp("[0-9]", "g");
   const isSpaceRegExp = new RegExp(" ", "g");
@@ -34,7 +35,7 @@ export const validation = (
   const maxLoginAndNameLength = 20;
   const minPasswordLength = 5;
 
-  if (login === "" || name === "" || password === "") {
+  if (login === "" || name === "" || password === "" || homeTown === "") {
     return "Uzupełnij wszystkie pola!";
   } else if (login.length < minLoginAndNameLength) {
     return `Login musi mieć co najmniej ${minLoginAndNameLength} znaki.`;

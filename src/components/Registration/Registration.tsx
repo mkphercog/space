@@ -7,7 +7,9 @@ import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
 import { profileSketchs, validation } from "./RegistrationLogic";
 import { setNotificationBar } from "./../../store/actions/notificationBarAction";
 import { NotificationColors } from "./../Notifications/NotificationBar/NotificationBar";
+import { YearSelect } from "./YearSelect/YearSelect";
 import { Prompt } from "react-router-dom";
+import { SexCheck } from "./SexCheck/SexCheck";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,
@@ -17,15 +19,23 @@ export const Registration: React.FC<RegistrationProps> = ({
   const [nameValue, setNameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [registrationError, setRegistationError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("No message");
+  const [errorMessage, setErrorMessage] = useState("No error");
   const [registrationLoad, setRegistrationLoad] = useState(false);
+  const [yearValue, setYearValue] = useState("2000");
+  const [sex, setSex] = useState("female");
+  const [homeTown, setHomeTown] = useState("Warszawa");
   const dispatch = useDispatch();
 
   if (registrationError && !registrationLoad) setRegistrationLoad(true);
 
   const handleSubmitRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const registrationResult = validation(loginValue, nameValue, passwordValue);
+    const registrationResult = validation(
+      loginValue,
+      nameValue,
+      passwordValue,
+      homeTown
+    );
     const isLoginUsed = allUsersList.findIndex(
       (user) => user.login === loginValue
     );
@@ -33,6 +43,7 @@ export const Registration: React.FC<RegistrationProps> = ({
       if (registrationResult === true) {
         const sketchIndex = Math.floor(Math.random() * profileSketchs.length);
         const newID = lastUserID + 1;
+        const userSex = sex === "female" ? "kobieta" : "mężczyzna";
         const newUser = {
           id: newID,
           login: loginValue,
@@ -41,7 +52,11 @@ export const Registration: React.FC<RegistrationProps> = ({
           name: nameValue,
           img: profileSketchs[sketchIndex],
           friends: [],
-          details: { birthYear: 2000, homeTown: "Warszawa", sex: "mężczyzna" },
+          details: {
+            birthYear: Number(yearValue),
+            homeTown: homeTown,
+            sex: userSex,
+          },
         };
         dispatch(addNewRegistredUser(newUser));
         dispatch(
@@ -101,6 +116,15 @@ export const Registration: React.FC<RegistrationProps> = ({
             *Hasło: minimum 5 znaków i przynajmniej jedna cyfra.
           </p>
 
+          <SexCheck sex={sex} setSex={setSex} />
+          <YearSelect yearValue={yearValue} setYearValue={setYearValue} />
+          <RegistrationInputs
+            labelName="Miasto"
+            inputValue={homeTown}
+            setInputValue={setHomeTown}
+            registrationError={registrationError}
+            setLoginError={setRegistationError}
+          />
           <button className="registration__btn">Zarejestruj się</button>
         </form>
         <p

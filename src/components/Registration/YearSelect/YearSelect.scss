@@ -1,0 +1,17 @@
+@import "./../../../styles/mixins.scss";
+
+.year-select {
+  align-self: flex-start;
+  margin: 5px 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.year-select__label {
+  @include labelBase;
+}
+
+.year-select__option {
+  font-size: 14px;
+}

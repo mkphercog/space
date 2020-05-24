@@ -1,0 +1,22 @@
+@import "./../../../styles/mixins.scss";
+
+.sex-check {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.sex-check__title {
+  @include labelBase;
+}
+
+.sex-check__label {
+  margin: 5px 0;
+  font-size: 14px;
+  color: white;
+}
+
+.sex-check__choice {
+  margin: 0 5px;
+}
