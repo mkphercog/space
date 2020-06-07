@@ -5,7 +5,13 @@ Space is just visualization of real social media website. Any changes will not b
 ## If you want you can copy this app, for that use command:
 
 ```
-git clone https://github.com/mkphercog/space
+git clone https://github.com/mkphercog/space.git
+```
+
+### After that in cloned folder use:
+
+```
+npm install
 ```
 
 ## In this project I'm using:
