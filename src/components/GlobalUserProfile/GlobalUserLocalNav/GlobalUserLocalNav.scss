@@ -9,10 +9,6 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 20px 10px 10px;
-
-  @media (min-width: 768px) {
-    justify-content: flex-start;
-  }
 }
 
 .global-user-local-nav__link {

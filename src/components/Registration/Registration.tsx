@@ -118,6 +118,7 @@ export const Registration: React.FC<RegistrationProps> = ({
 
           <SexCheck sex={sex} setSex={setSex} />
           <YearSelect yearValue={yearValue} setYearValue={setYearValue} />
+
           <RegistrationInputs
             labelName="Miasto"
             inputValue={homeTown}
