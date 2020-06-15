@@ -1,46 +1,67 @@
 {
   "messages": [
     {
+      "messageID": 1,
       "userID": 0,
       "text": "Cześć wsztyskim! Testowa wiadomość, mam nadzieję, że wszystko działa. Miłego eksplorowania strony! :)",
       "time": "19:54:48",
-      "date": "09.05.2020"
+      "date": "09.05.2020",
+      "likes": [0, 1, 2, 3, 4, 5],
+      "dislikes": []
     },
     {
+      "messageID": 2,
       "userID": 1,
       "text": "Hello! :)",
       "time": "19:55:48",
-      "date": "09.05.2020"
+      "date": "09.05.2020",
+      "likes": [0],
+      "dislikes": []
     },
     {
+      "messageID": 3,
       "userID": 5,
       "text": "Cześć! :D",
       "time": "19:55:59",
-      "date": "09.05.2020"
+      "date": "09.05.2020",
+      "likes": [0, 1],
+      "dislikes": []
     },
     {
+      "messageID": 4,
       "userID": 2,
       "text": "chrum chrum :)",
       "time": "19:57:55",
-      "date": "09.05.2020"
+      "date": "09.05.2020",
+      "likes": [0],
+      "dislikes": [8]
     },
     {
+      "messageID": 5,
       "userID": 7,
       "text": "czesc!",
       "time": "19:58:48",
-      "date": "09.05.2020"
+      "date": "09.05.2020",
+      "likes": [0],
+      "dislikes": []
     },
     {
+      "messageID": 6,
       "userID": 3,
       "text": "Hej hej!",
       "time": "06:54:22",
-      "date": "10.05.2020"
+      "date": "10.05.2020",
+      "likes": [0],
+      "dislikes": []
     },
     {
+      "messageID": 7,
       "userID": 8,
       "text": "Elo :)",
       "time": "14:50:01",
-      "date": "10.05.2020"
+      "date": "10.05.2020",
+      "likes": [],
+      "dislikes": []
     }
   ]
 }

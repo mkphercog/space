@@ -7,12 +7,13 @@
 
 .message {
   @include containerShadow;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 98%;
   padding: 10px;
-  margin: 20px auto;
+  margin: 30px auto;
 
   @media (min-width: 768px) {
     width: 70%;
@@ -82,5 +83,40 @@
 
   @media (min-width: 768px) {
     font-size: 10px;
+  }
+}
+
+.message__likes-dislikes {
+  position: absolute;
+  padding: 2px 5px;
+  bottom: -13px;
+  right: 10px;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+
+  @media (min-width: 768px) {
+    bottom: -15px;
+    font-size: 14px;
+  }
+}
+
+.message__likes {
+  margin-right: 10px;
+  color: $basicGreenColor;
+  cursor: default;
+}
+
+.message__dislikes {
+  color: darkred;
+  cursor: default;
+}
+
+.fa-thumbs-up,
+.fa-thumbs-down {
+  margin: 3px;
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
   }
 }
