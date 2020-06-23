@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./AllUsersList.scss";
 import { useDispatch } from "react-redux";
 import { UserToAdd } from "./UserToAdd/UserToAdd";
+import "./AllUsersList.scss";
 
 export const AllUsersList: React.FC<UsersProps> = ({
   loggedUser,

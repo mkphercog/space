@@ -1,22 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { GlobalStateTypes } from "./store/interfaces";
+
+import { SubpagesContent } from "./components/SubpagesContent/SubpagesContent";
+import { ProfileShortcut } from "./components/ProfileShortcut/ProfileShortcut";
+import { Notifications } from "./components/Notifications/Notifications";
+import { MenuIcon } from "./components/MenuIcon/MenuIcon";
+import { Header } from "./components/Header/Header";
+import { Menu } from "./components/Menu/Menu";
+
 import SpaceBG from "./images/space-bg2.jpg";
 import "./App.scss";
-import { Header } from "./components/Header/Header";
-import { SubpagesContent } from "./components/SubpagesContent/SubpagesContent";
-import { MenuIcon } from "./components/MenuIcon/MenuIcon";
-import { Menu } from "./components/Menu/Menu";
-import { useSelector } from "react-redux";
-import { Notifications } from "./components/Notifications/Notifications";
-import { NotificationColors } from "./components/Notifications/NotificationBar/NotificationBar";
-import { ProfileShortcut } from "./components/ProfileShortcut/ProfileShortcut";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
 export const App = () => {
-  const notificationList = useSelector(
-    (state: Notification) => state.notificationBar.notificationList
-  );
-  const loggedUser = useSelector((state: LoggedUser) => state.loggedUser);
+  const state = useSelector((state: GlobalStateTypes) => state);
+  const { notificationList } = state.notificationBar;
+  const { loggedUser } = state;
 
   return (
     <div className="app" style={spaceBgImage}>
@@ -33,21 +34,3 @@ export const App = () => {
     </div>
   );
 };
-
-interface Notification {
-  notificationBar: {
-    notificationList: {
-      messageText: string;
-      colorBar: NotificationColors;
-      animation: boolean;
-    }[];
-  };
-}
-
-interface LoggedUser {
-  loggedUser: {
-    isLogged: boolean;
-    img: string;
-    name: string;
-  };
-}

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Header.scss";
 import { Switch, Route } from "react-router-dom";
 import {
   SpaceRocketLogo,
@@ -10,6 +9,7 @@ import {
   Registration,
   Users,
 } from "./HeaderContent";
+import "./Header.scss";
 
 export const Header: React.FC = () => (
   <header className="header">

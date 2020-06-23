@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import "./Menu.scss";
 import { useSelector, useDispatch } from "react-redux";
-import SpaceBG from "./../../images/space-bg.jpg";
 import { NavLink } from "react-router-dom";
+
 import { hideMenu } from "./../../store/actions/menuAction";
 import {
   setLoginUser,
   resetUserDetails,
 } from "./../../store/actions/userAction";
 import { deleteNotifications } from "./../../store/actions/notificationBarAction";
+import { GlobalStateTypes } from "./../../store/interfaces";
+
+import SpaceBG from "./../../images/space-bg.jpg";
+import "./Menu.scss";
 
 const spaceBgImage = { backgroundImage: `url(${SpaceBG})` };
 
 export const Menu: React.FC = () => {
-  const dispatch = useDispatch();
-  const menuVisibility = useSelector((state: Menu) => state.menu.visibility);
-  const userIsLogged = useSelector((state: User) => state.loggedUser.isLogged);
   const [menuLoad, setMenuLoad] = useState(false);
+  const dispatch = useDispatch();
+
+  const state = useSelector((state: GlobalStateTypes) => state);
+  const { visibility: menuVisibility } = state.menu;
+  const { isLogged: userIsLogged } = state.loggedUser;
+
   const animation = menuVisibility ? "menu--show" : "menu--hide";
 
   if (menuVisibility && !menuLoad) setMenuLoad(true);
@@ -109,15 +115,3 @@ export const Menu: React.FC = () => {
     </nav>
   );
 };
-
-interface Menu {
-  menu: {
-    visibility: boolean;
-  };
-}
-
-interface User {
-  loggedUser: {
-    isLogged: boolean;
-  };
-}

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./Messages.scss";
+
+import { NotificationColors } from "./../../Notifications/NotificationBar/NotificationBar";
 import {
   likeMessage,
   dislikeMessage,
@@ -8,7 +9,9 @@ import {
   dislikeMessageDelete,
 } from "./../../../store/actions/messagesAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
-import { NotificationColors } from "./../../Notifications/NotificationBar/NotificationBar";
+import { GlobalStateTypes } from "./../../../store/interfaces";
+
+import "./Messages.scss";
 
 const scrollDown = () => {
   const messageWrap = document.getElementById("messages__wrapper");
@@ -16,13 +19,11 @@ const scrollDown = () => {
 };
 
 export const Messages: React.FC<MessagesProps> = ({ allUsersList }) => {
+  const state = useSelector((state: GlobalStateTypes) => state);
+  const { globalMessages: messTemp } = state.messages;
+  const { id: loggedUserID } = state.loggedUser;
+
   const dispatch = useDispatch();
-  const messTemp = useSelector(
-    (state: Messages) => state.messages.globalMessages
-  );
-  const loggedUserID = useSelector(
-    (state: LoggedUserID) => state.loggedUser.id
-  );
 
   useEffect(() => {
     scrollDown();
@@ -105,24 +106,4 @@ interface MessagesProps {
     img: string;
     friends: number[];
   }[];
-}
-
-interface Messages {
-  messages: {
-    globalMessages: {
-      messageID: number;
-      userID: number;
-      text: string;
-      time: string;
-      date: string;
-      likes: number[];
-      dislikes: number[];
-    }[];
-  };
-}
-
-interface LoggedUserID {
-  loggedUser: {
-    id: number;
-  };
 }

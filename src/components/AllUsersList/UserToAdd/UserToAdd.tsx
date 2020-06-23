@@ -1,12 +1,14 @@
 import React from "react";
-import "./UserToAdd.scss";
+import { useHistory } from "react-router-dom";
+
+import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
 import {
   addUserToFriends,
   deleteUserFromFriends,
 } from "./../../../store/actions/userAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
-import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
-import { useHistory } from "react-router-dom";
+
+import "./UserToAdd.scss";
 
 export const UserToAdd: React.FC<UserToAddProps> = ({
   globalUser,

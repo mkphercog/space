@@ -1,20 +1,25 @@
 import React, { useEffect } from "react";
-import "./SubpagesContent.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { AboutApp } from "../AboutApp/AboutApp";
-import { LoginDesk } from "../LoginDesk/LoginDesk";
-import { Board } from "../Board/Board";
+
 import { LoggedUserProfile } from "../LoggedUserProfile/LoggedUserProfile";
+import { GlobalUserProfile } from "../GlobalUserProfile/GlobalUserProfile";
 import { AllUsersList } from "../AllUsersList/AllUsersList";
 import { Registration } from "../Registration/Registration";
-import { updateUsersList } from "./../../store/actions/usersAction";
 import { PathError } from "./../PathError/PathError";
-import { GlobalUserProfile } from "../GlobalUserProfile/GlobalUserProfile";
+import { LoginDesk } from "../LoginDesk/LoginDesk";
+import { AboutApp } from "../AboutApp/AboutApp";
+import { Board } from "../Board/Board";
+
+import { updateUsersList } from "./../../store/actions/usersAction";
+import { GlobalStateTypes } from "./../../store/interfaces";
+
+import "./SubpagesContent.scss";
 
 export const SubpagesContent: React.FC = () => {
-  const loggedUser = useSelector((state: User) => state.loggedUser);
-  const allUsers = useSelector((state: Users) => state.allUsers);
+  const state = useSelector((state: GlobalStateTypes) => state);
+  const { loggedUser, allUsers } = state;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,8 +51,7 @@ export const SubpagesContent: React.FC = () => {
 
       dispatch(updateUsersList(updatedUsersList));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loggedUser.friends]);
+  }, [loggedUser.friends, allUsers.list, dispatch, loggedUser.id]);
 
   return (
     <main className="desk">
@@ -139,38 +143,3 @@ export const SubpagesContent: React.FC = () => {
     </main>
   );
 };
-
-interface User {
-  loggedUser: {
-    id: number;
-    isLogged: boolean;
-    name: string;
-    img: string;
-    friends: number[];
-    details: {
-      birthYear: number;
-      homeTown: string;
-      sex: string;
-    };
-  };
-}
-
-interface Users {
-  allUsers: {
-    list: {
-      login: string;
-      password: string;
-      id: number;
-      isLogged: boolean;
-      name: string;
-      img: string;
-      friends: number[];
-      details: {
-        birthYear: number;
-        homeTown: string;
-        sex: string;
-      };
-    }[];
-    lastUserID: number;
-  };
-}

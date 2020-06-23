@@ -1,6 +1,6 @@
 import React from "react";
-import "./ProfileShortcut.scss";
 import { useHistory } from "react-router-dom";
+import "./ProfileShortcut.scss";
 
 export const ProfileShortcut: React.FC<ProfileShortcutProps> = ({
   loggedUser,

@@ -1,6 +1,6 @@
 import React from "react";
-import "./PathError.scss";
 import { useHistory } from "react-router-dom";
+import "./PathError.scss";
 
 export const PathError: React.FC = () => {
   const pathHistory = useHistory();

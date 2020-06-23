@@ -1,8 +1,8 @@
 import React from "react";
-import "./Board.scss";
 import { Messages } from "./Messages/Messages";
 import { NoLogged } from "./NoLogged/NoLogged";
 import { AddNewMessage } from "./AddNewMessage/AddNewMessage";
+import "./Board.scss";
 
 export const Board: React.FC<BoardProps> = ({ loggedUser, allUsersList }) => (
   <section className="board">

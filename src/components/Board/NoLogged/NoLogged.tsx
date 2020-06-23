@@ -1,6 +1,6 @@
 import React from "react";
-import "./NoLogged.scss";
 import { NavLink } from "react-router-dom";
+import "./NoLogged.scss";
 
 export const NoLogged: React.FC = () => (
   <div className="no-logged">

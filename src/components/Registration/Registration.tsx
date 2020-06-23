@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import "./Registration.scss";
-import { RegistrationInputs } from "./RegistrationInputs/RegistrationInputs";
+import { Prompt } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+import { NotificationColors } from "./../Notifications/NotificationBar/NotificationBar";
+import { RegistrationInputs } from "./RegistrationInputs/RegistrationInputs";
+import { profileSketchs, validation } from "./RegistrationLogic";
+import { YearSelect } from "./YearSelect/YearSelect";
+import { SexCheck } from "./SexCheck/SexCheck";
+
 import { addNewRegistredUser } from "./../../store/actions/usersAction";
 import { setLoginUser, setUserDetails } from "./../../store/actions/userAction";
-import { profileSketchs, validation } from "./RegistrationLogic";
 import { setNotificationBar } from "./../../store/actions/notificationBarAction";
-import { NotificationColors } from "./../Notifications/NotificationBar/NotificationBar";
-import { YearSelect } from "./YearSelect/YearSelect";
-import { Prompt } from "react-router-dom";
-import { SexCheck } from "./SexCheck/SexCheck";
+
+import "./Registration.scss";
 
 export const Registration: React.FC<RegistrationProps> = ({
   allUsersList,

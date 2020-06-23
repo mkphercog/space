@@ -1,12 +1,14 @@
 import React from "react";
-import "./GlobalUserLocalNav.scss";
 import { NavLink } from "react-router-dom";
+
+import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
 import {
   addUserToFriends,
   deleteUserFromFriends,
 } from "./../../../store/actions/userAction";
 import { setNotificationBar } from "./../../../store/actions/notificationBarAction";
-import { NotificationColors } from "./../../../components/Notifications/NotificationBar/NotificationBar";
+
+import "./GlobalUserLocalNav.scss";
 
 export const GlobalUserLocalNav: React.FC<GlobalUserLocalNavProps> = ({
   dispatch,

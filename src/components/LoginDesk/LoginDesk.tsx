@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import "./LoginDesk.scss";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 import { tryToLog } from "./LoginLogic";
 import { LoginInputs } from "./LoginInputs/LoginInputs";
-import { NavLink } from "react-router-dom";
+
+import "./LoginDesk.scss";
 
 export const LoginDesk: React.FC<LoginDeskProps> = ({ allUsersList }) => {
   const [loginValue, setLoginValue] = useState("");

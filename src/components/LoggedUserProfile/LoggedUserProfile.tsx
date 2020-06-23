@@ -1,7 +1,7 @@
 import React from "react";
-import "./LoggedUserProfile.scss";
-import { LoggedUserFriends } from "./LoggedUserFriends/LoggedUserFriends";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { LoggedUserFriends } from "./LoggedUserFriends/LoggedUserFriends";
+import "./LoggedUserProfile.scss";
 
 export const LoggedUserProfile: React.FC<LoggedUserProfileProps> = ({
   loggedUser,

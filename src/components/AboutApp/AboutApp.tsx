@@ -1,7 +1,7 @@
 import React from "react";
-import "./AboutApp.scss";
-import { loggedDesc, unloggedDesc } from "./AboutAppDesc";
 import { NavLink } from "react-router-dom";
+import { loggedDesc, unloggedDesc } from "./AboutAppDesc";
+import "./AboutApp.scss";
 
 const { welcomeLogged } = loggedDesc;
 const { welcomeUnlogged, likeSocialMedia, letsTestIt, notSave } = unloggedDesc;

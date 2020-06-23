@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./GlobalUserProfile.scss";
+import { useDispatch } from "react-redux";
 import { useHistory, Switch, Route, Redirect } from "react-router-dom";
+
 import { GlobalUserFriends } from "./GlobalUserFriends/GlobalUserFriends";
 import { GlobalUserImgName } from "./GlobalUserImgName/GlobalUserImgName";
 import { GlobalUserLocalNav } from "./GlobalUserLocalNav/GlobalUserLocalNav";
-import { useDispatch } from "react-redux";
+
+import "./GlobalUserProfile.scss";
 
 export const GlobalUserProfile: React.FC<GlobalUserProfileProps> = ({
   params,

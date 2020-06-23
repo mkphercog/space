@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./AddNewMessage.scss";
+
+import { NotificationColors } from "./../../Notifications/NotificationBar/NotificationBar";
 import { addGlobalMessage } from "./../../../store/actions/messagesAction";
 import { setNotificationBar } from "../../../store/actions/notificationBarAction";
-import { NotificationColors } from "./../../Notifications/NotificationBar/NotificationBar";
+import { GlobalStateTypes } from "./../../../store/interfaces";
+
+import "./AddNewMessage.scss";
 
 export const AddNewMessage: React.FC<AddNewMessageProps> = ({ loggedUser }) => {
-  const dispatch = useDispatch();
   const [messageValue, setMessageValue] = useState("");
   const lastMessageID = useSelector(
-    (state: MessageID) => state.messages.lastMessageID
+    (state: GlobalStateTypes) => state.messages.lastMessageID
   );
+  const dispatch = useDispatch();
 
   const handleSubmitMessage = (e: React.FormEvent<HTMLFormElement>) => {
     const messageTime = new Date().toLocaleTimeString();
@@ -67,12 +70,6 @@ interface AddNewMessageProps {
   loggedUser: {
     id: number;
     img: string;
-  };
-}
-
-interface MessageID {
-  messages: {
-    lastMessageID: number;
   };
 }
 

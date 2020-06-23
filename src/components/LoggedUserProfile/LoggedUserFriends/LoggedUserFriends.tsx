@@ -1,6 +1,6 @@
 import React from "react";
-import "./LoggedUserFriends.scss";
 import { useHistory } from "react-router-dom";
+import "./LoggedUserFriends.scss";
 
 export const LoggedUserFriends: React.FC<LoggedUserFriendsProps> = ({
   loggedUser,
